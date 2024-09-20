@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 site_name: Implantació de Sistemes Operatius - POL CASANOVA PUIG
 nav:
 - Introducció: index.md
@@ -5,3 +6,8 @@ nav:
 theme: material
    
 
+=======
+site_name: My Docs
+theme: 
+name: material
+>>>>>>> b18df821 (text)

@@ -33,7 +33,11 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
+<<<<<<< HEAD
 set -gx VIRTUAL_ENV "/home/alumnat/sistemes/venv"
+=======
+set -gx VIRTUAL_ENV "/home/alumnat/prova/venv"
+>>>>>>> b18df821 (text)
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
