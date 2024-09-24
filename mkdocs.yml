@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 site_name: Implantació de Sistemes Operatius - POL CASANOVA PUIG
 nav:
 - Introducció: index.md
@@ -11,3 +12,15 @@ site_name: My Docs
 theme: 
 name: material
 >>>>>>> b18df821 (text)
+=======
+site_name: Pol Casanova
+theme: 
+  name: material
+
+nav: 
+  - Sprint 1:
+    - "index.md"
+    - "ubuntu.md"
+    - "nat.md"
+    - "llicencies.md"
+>>>>>>> e9126340 (Modificacions Ubuntu)

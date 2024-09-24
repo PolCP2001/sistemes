@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Benvingut/da a MkDocs de Pol Casanova
 
 Per accedir a la documentació completa visita [mkdocs.org](https://www.mkdocs.org).
@@ -27,3 +28,5 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
 >>>>>>> b18df821 (text)
+=======
+>>>>>>> e9126340 (Modificacions Ubuntu)
