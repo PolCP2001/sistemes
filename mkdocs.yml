@@ -1,3 +1,10 @@
-site_name: My Docs
+site_name: Pol Casanova
 theme: 
-name: material
+  name: material
+
+nav: 
+  - Sprint 1:
+    - "index.md"
+    - "ubuntu.md"
+    - "nat.md"
+    - "llicencies.md"
