@@ -1,0 +1,1211 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Sprint1 - Implantació de Sistemes Operatius - POL CASANOVA PUIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sprint-1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-header__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantació de Sistemes Operatius - POL CASANOVA PUIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sprint1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-nav__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Implantació de Sistemes Operatius - POL CASANOVA PUIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sprint1
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Sprint1
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installacio-del-sistema-operatiu" class="md-nav__link">
+    Instal·lació del sistema operatiu.
+  </a>
+  
+    <nav class="md-nav" aria-label="Instal·lació del sistema operatiu.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracio" class="md-nav__link">
+    Configuració
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#particions" class="md-nav__link">
+    Particions
+  </a>
+  
+    <nav class="md-nav" aria-label="Particions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-inicial-pas-a-pas" class="md-nav__link">
+    Configuració inicial pas a pas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-de-les-particions" class="md-nav__link">
+    Configuració de les particions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llicencies" class="md-nav__link">
+    Llicències
+  </a>
+  
+    <nav class="md-nav" aria-label="Llicències">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llicencies-de-programari-lliure" class="md-nav__link">
+    Llicències de programari lliure
+  </a>
+  
+    <nav class="md-nav" aria-label="Llicències de programari lliure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-llicencies-de-programari-lliure" class="md-nav__link">
+    Tipus de llicències de programari lliure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altres-tipus-de-llicencies" class="md-nav__link">
+    Altres tipus de llicències
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#punts-de-restauracio" class="md-nav__link">
+    Punts de restauració
+  </a>
+  
+    <nav class="md-nav" aria-label="Punts de restauració">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-timeshift" class="md-nav__link">
+    Instal·lació de Timeshift
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracio-basica-de-xarxa" class="md-nav__link">
+    Configuració bàsica de xarxa
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installacio-basica-de-programes" class="md-nav__link">
+    Instal·lació bàsica de programes
+  </a>
+  
+    <nav class="md-nav" aria-label="Instal·lació bàsica de programes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-des-de-lentorn-grafic" class="md-nav__link">
+    Instal·lació des de l'entorn gràfic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installacio-des-de-terminal" class="md-nav__link">
+    Instal·lació des de terminal
+  </a>
+  
+    <nav class="md-nav" aria-label="Instal·lació des de terminal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt-advanced-package-tools" class="md-nav__link">
+    APT (Advanced Package Tools)
+  </a>
+  
+    <nav class="md-nav" aria-label="APT (Advanced Package Tools)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-gimp-amb-apt" class="md-nav__link">
+    Instal·lació de GIMP amb APT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpkg-debian-package" class="md-nav__link">
+    DPKG (Debian Package)
+  </a>
+  
+    <nav class="md-nav" aria-label="DPKG (Debian Package)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-gimp-amb-dpkg" class="md-nav__link">
+    Instal·lació de GIMP amb DPKG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aptitude" class="md-nav__link">
+    Aptitude
+  </a>
+  
+    <nav class="md-nav" aria-label="Aptitude">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-gimp-amb-aptitude" class="md-nav__link">
+    Instal·lació de GIMP amb APTITUDE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#afegir-repositoris" class="md-nav__link">
+    Afegir repositoris
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestors-darrancada" class="md-nav__link">
+    Gestors d'arrancada
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestors d'arrancada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grub2" class="md-nav__link">
+    GRUB2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mbr-master-boot-record" class="md-nav__link">
+    MBR (Master Boot Record)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-guid-partition-table" class="md-nav__link">
+    GPT (GUID Partition Table)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recuperacio-de-gestors-darrencada" class="md-nav__link">
+    Recuperació de gestors d'arrencada
+  </a>
+  
+    <nav class="md-nav" aria-label="Recuperació de gestors d'arrencada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boot-repair" class="md-nav__link">
+    Boot-Repair
+  </a>
+  
+    <nav class="md-nav" aria-label="Boot-Repair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utilitzacio-de-boot-repair" class="md-nav__link">
+    Utilització de Boot-Repair
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installacio-del-sistema-operatiu" class="md-nav__link">
+    Instal·lació del sistema operatiu.
+  </a>
+  
+    <nav class="md-nav" aria-label="Instal·lació del sistema operatiu.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracio" class="md-nav__link">
+    Configuració
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#particions" class="md-nav__link">
+    Particions
+  </a>
+  
+    <nav class="md-nav" aria-label="Particions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-inicial-pas-a-pas" class="md-nav__link">
+    Configuració inicial pas a pas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-de-les-particions" class="md-nav__link">
+    Configuració de les particions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llicencies" class="md-nav__link">
+    Llicències
+  </a>
+  
+    <nav class="md-nav" aria-label="Llicències">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llicencies-de-programari-lliure" class="md-nav__link">
+    Llicències de programari lliure
+  </a>
+  
+    <nav class="md-nav" aria-label="Llicències de programari lliure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-llicencies-de-programari-lliure" class="md-nav__link">
+    Tipus de llicències de programari lliure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altres-tipus-de-llicencies" class="md-nav__link">
+    Altres tipus de llicències
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#punts-de-restauracio" class="md-nav__link">
+    Punts de restauració
+  </a>
+  
+    <nav class="md-nav" aria-label="Punts de restauració">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-timeshift" class="md-nav__link">
+    Instal·lació de Timeshift
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracio-basica-de-xarxa" class="md-nav__link">
+    Configuració bàsica de xarxa
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installacio-basica-de-programes" class="md-nav__link">
+    Instal·lació bàsica de programes
+  </a>
+  
+    <nav class="md-nav" aria-label="Instal·lació bàsica de programes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-des-de-lentorn-grafic" class="md-nav__link">
+    Instal·lació des de l'entorn gràfic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installacio-des-de-terminal" class="md-nav__link">
+    Instal·lació des de terminal
+  </a>
+  
+    <nav class="md-nav" aria-label="Instal·lació des de terminal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt-advanced-package-tools" class="md-nav__link">
+    APT (Advanced Package Tools)
+  </a>
+  
+    <nav class="md-nav" aria-label="APT (Advanced Package Tools)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-gimp-amb-apt" class="md-nav__link">
+    Instal·lació de GIMP amb APT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpkg-debian-package" class="md-nav__link">
+    DPKG (Debian Package)
+  </a>
+  
+    <nav class="md-nav" aria-label="DPKG (Debian Package)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-gimp-amb-dpkg" class="md-nav__link">
+    Instal·lació de GIMP amb DPKG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aptitude" class="md-nav__link">
+    Aptitude
+  </a>
+  
+    <nav class="md-nav" aria-label="Aptitude">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-de-gimp-amb-aptitude" class="md-nav__link">
+    Instal·lació de GIMP amb APTITUDE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#afegir-repositoris" class="md-nav__link">
+    Afegir repositoris
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestors-darrancada" class="md-nav__link">
+    Gestors d'arrancada
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestors d'arrancada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grub2" class="md-nav__link">
+    GRUB2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mbr-master-boot-record" class="md-nav__link">
+    MBR (Master Boot Record)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-guid-partition-table" class="md-nav__link">
+    GPT (GUID Partition Table)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recuperacio-de-gestors-darrencada" class="md-nav__link">
+    Recuperació de gestors d'arrencada
+  </a>
+  
+    <nav class="md-nav" aria-label="Recuperació de gestors d'arrencada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boot-repair" class="md-nav__link">
+    Boot-Repair
+  </a>
+  
+    <nav class="md-nav" aria-label="Boot-Repair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utilitzacio-de-boot-repair" class="md-nav__link">
+    Utilització de Boot-Repair
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="sprint-1">Sprint 1</h1>
+<p>En aquest apartat es documentarà la informació i procediments necessaris per l'<em>Sprint 1</em>.</p>
+<h2 id="installacio-del-sistema-operatiu">Instal·lació del sistema operatiu.</h2>
+<p>Començarem per la instal·lació del sistema operatiu. En aquest cas crearem una màquina virtual amb una ISO de <strong>ubuntu 24.04 LTS</strong> al programa <em>Oracle VirtualBox</em>.</p>
+<h3 id="configuracio">Configuració</h3>
+<p>Havent obert el programa de VirtualBox clicarem sobre la icona de <em>Nova</em> i apareixerem a la finestra <strong>Crear una màquina cirtual</strong> . En aquest primer apartat anomenat <em>Name and Operating System</em> donarem un nom a la nostra màquina virtual, indicarem quina serà la seva carpeta arrel (deixarem l'assignada per defecte) i seleccionarem entre el buscador d'arxius la ISO del sistema operatiu que haurem descarregat previament.</p>
+<p><img alt="Name and Operating System" src="../Imatges/MK/mk1.png" /></p>
+<p>Passant al següent apartat corresponent a <em>Unattended Install</em> proporcionarem al box de <strong>Username and Password</strong> l'usuari i la contrasenya que utilitzarem per accedir a la nostra màquina virtual quan aquesta s'executi. Al box <strong>Additional Options</strong> configurarem el <em>Hostname</em> i el <em>Domain Name</em> de manera que compleixi el que se'ns requereix si movem al cursor sobre la icona taronja que ens apareixerà a la dreta si el nom que es proporciona per defecte no és vàlid. Generalment, eliminant els espais que poden haver aparegut o caràcters especials que el camp no admeti serà suficient.</p>
+<p><img alt="Unattended Install" src="../Imatges/MK/mk2.png" /></p>
+<p>Avancem a la configuració de <strong>Hardware</strong>. Aquí assignarem els recursos de memòria RAM i nuclis del processador màxims que permetrem utilitzar a la nostra màquina virtual.</p>
+<blockquote>
+<p><strong>Nota:</strong> Els valors que assignem en cap cas poden superior als valors màxims de la RAM o de nuclis del processador amb que treballem.</p>
+<p>Per a poder treballar mínimament còmodes amb una MV ubuntu assignem un mínim de 4GB de RAM i 4 nuclis.</p>
+</blockquote>
+<p><img alt="Hardware" src="../Imatges/MK/mk3.png" /></p>
+<p>Per acabar de muntar la nostra MV solament ens queda configurar el nostre <strong>Hard Disk</strong> . En aquest apartat, deixarem la carpeta de destí per defecte i per no tenir molts problemes amb una MV ubuntu assignem un mínim de 25GB.</p>
+<blockquote>
+<p><strong>Nota:</strong> El valor que donem al espai del disc emprat per la màquina en cap cas podra superar a la capacitat màxima disponible del nostre disc físic.</p>
+</blockquote>
+<p><img alt="Hard Disk" src="../Imatges/MK/mk4.png" /> </p>
+<h2 id="particions">Particions</h2>
+<p>Quan executem la màquina virtual per primera vegada apareixerem a la configuració inicial d'Ubuntu. Durant aquest procediment podrem configurar les particions.</p>
+<h3 id="configuracio-inicial-pas-a-pas">Configuració inicial pas a pas</h3>
+<p>Comencem per seleccionar l'idioma amb que treballarà el nostre <em>SO</em>. En aquest cas nosaltres seleccionem <strong>català</strong>.</p>
+<p><img alt="Lang" src="../Imatges/particions/01.png" /></p>
+<p>Deixarem la distribució del teclat en <strong>espanyol</strong> i amb la variant <strong>Espanyol - Català</strong> que apareix predefinida al seleccionar el llenguatge català.</p>
+<p><img alt="Keyboard" src="../Imatges/particions/02.png" /></p>
+<p>Deixarem la connexió a internet establerta segons el nostre cas.</p>
+<p><img alt="IntCon" src="../Imatges/particions/03.png" /></p>
+<p>Sel·leccionarem que volem <strong>instal·lar el sistema Ubuntu</strong>.</p>
+<p><img alt="Inst" src="../Imatges/particions/04.png" /></p>
+<p>Deixarem seleccionada la <strong>instal·lació interactiva</strong>.</p>
+<p><img alt="IntInst" src="../Imatges/particions/05.png" /></p>
+<p>Per aquesta màquina demanarem que ens instal·li la <strong>sel·leció per defecte</strong> de programari.</p>
+<p><img alt="Prog" src="../Imatges/particions/06.png" /></p>
+<p>Per optimitzar el la nostra màquina <strong>seleccionarem les dos opcions</strong> a la part de <em>Install recommended propietary software?</em>.</p>
+<p><img alt="PropSoft" src="../Imatges/particions/07.png" /></p>
+<h3 id="configuracio-de-les-particions">Configuració de les particions</h3>
+<p>Per a començar en essència amb la part de configurar les particions, al tipus d'instal·lació seleccionarem aquest cop  <strong>'alguna altra cosa'</strong>.</p>
+<p><img alt="InstType" src="../Imatges/particions/09.png" /></p>
+<p>Clicarem sobre l'icona blanca del disc dur i ens dirigirem baix a l'esquerra i clicarem sobre l'icona de <strong>+</strong> per afegir una nova partició. En aquest cas, la nostra màquina disposa de 26.84 GB. així que farem les següents particions, clicant sobre <em>Espai lliure</em> i l'icona <strong>+</strong> cada cop que acabem de crear-ne una de nova.</p>
+<blockquote>
+<p><strong>Primera</strong>:  Espai: 1.00 GB  Tipus: Swap Punt de muntatge: '-'</p>
+<p><strong>Segona</strong>:   Espai: 17.50 GB Tipus: Ext4 Punt de muntatge: /home </p>
+<p><strong>Tercera</strong>:  Espai: 6.70 GB  Tipus: Ext4 Punt de muntatge: /</p>
+<p><strong>Quarta</strong>:   Espai: 1.64 GB  Tipus: '-'  Punt de muntatge: '-'</p>
+</blockquote>
+<p><img alt="ManPart" src="../Imatges/particions/11.png" /></p>
+<p>Registrarem el nostre usuari i nom de l'ordinador. En aquest moment crearem també una contrasenya per a l'usuari i deixarem activa la selecció <strong>fes que calgui una contrasenya per entrar</strong>.</p>
+<p><img alt="UserLog" src="../Imatges/particions/12.png" /></p>
+<p>Seleccionarem al mapa la nostra franja horaria.</p>
+<p><img alt="FuseMap" src="../Imatges/particions/13.png" /></p>
+<p>Després de confirmar les nostres configuracions a la taula que se'ns proporcionarà finalitzarem fent clic sobre <strong>comença a instal·lar</strong>.</p>
+<p><img alt="ConfEnd" src="../Imatges/particions/14.png" /></p>
+<h2 id="llicencies">Llicències</h2>
+<p>Una llicència de programari és un conjunt de condicions legals que defineixen els drets i les restriccions sota les quals es pot utilitzar, modificar, distribuir o accedir a un programa informàtic. Aquesta llicència actua com un contracte entre el creador o titular dels drets del programari (sovint l'empresa o el desenvolupador) i l'usuari final, establint què es permet fer amb el programari i què no.</p>
+<h3 id="llicencies-de-programari-lliure">Llicències de programari lliure</h3>
+<p>Perquè una llicència de programari es consideri programari lliure, ha de complir quatre principis fonamentals que garanteixen a l'usuari llibertats plenes sobre l'ús i modificació del programari. Aquests principis, establerts per la Free Software Foundation (FSF), són els següents:</p>
+<p>Llibertat d'ús:</p>
+<p>L'usuari té la llibertat de fer servir el programa amb qualsevol propòsit, sense cap restricció. Això inclou l'ús personal, acadèmic, comercial o qualsevol altre.</p>
+<p>Llibertat d'estudi i modificació:
+L'usuari té la llibertat de estudiar com funciona el programa i de modificar-lo per adaptar-lo a les seves necessitats. Perquè això sigui possible, és necessari que el codi font estigui disponible.</p>
+<p>Llibertat de distribució:
+L'usuari té la llibertat de redistribuir còpies del programa a altres persones, ja sigui de manera gratuïta o cobrant-ne un preu, sense restriccions.</p>
+<p>Llibertat de millorar i redistribuir les versions modificades:
+L'usuari té la llibertat de millorar el programa i distribuir les versions modificades per tal que la comunitat en general es pugui beneficiar de les millores. Com amb la llibertat 1, per poder exercir aquesta llibertat és necessari l'accés al codi font.</p>
+<blockquote>
+<p>Aquests quatre principis asseguren que el programari sigui totalment lliure, no només en termes de preu, sinó sobretot pel que fa a les llibertats d'ús, modificació i redistribució.</p>
+</blockquote>
+<pre><code>    &gt; font: [ChatGPT](https://chatgpt.com "Chat generatiu amb IA implementada") .
+</code></pre>
+<h4 id="tipus-de-llicencies-de-programari-lliure">Tipus de llicències de programari lliure</h4>
+<p>Dins de les llicències de programari lliure, hi ha diverses opcions que proporcionen diferents nivells de llibertat i condicions per als usuaris. A continuació, es presenten les llicències més utilitzades dins d'aquest àmbit, juntament amb les seves característiques principals:</p>
+<blockquote>
+<p>GNU General Public License (GPL)</p>
+<p>Característiques:</p>
+<pre><code>   · Té un efecte copyleft fort, la qual cosa significa que qualsevol treball derivat ha de mantenir-se sota la mateixa llicència.
+
+   · Garanteix que el codi font estigui disponible tant per al programari original com per a qualsevol versió modificada.
+
+   · Prohibeix la incorporació del programari en projectes que tinguin llicències privatives o propietàries.
+
+   · Molt utilitzada en projectes de gran escala com Linux.
+</code></pre>
+<p>GNU Lesser General Public License (LGPL)</p>
+<p>Característiques:</p>
+<pre><code>   · Similar a la GPL, però més permissiva, especialment dissenyada per a biblioteques de programari.
+
+   · Permet que el programari sigui enllaçat amb programari propietari sense que aquest últim hagi de ser lliure.
+
+   · Manté el copyleft en les modificacions directes de la biblioteca, però permet un ús més ampli quan s’utilitza en conjunció amb altres programes.
+</code></pre>
+<p>MIT License</p>
+<p>Característiques:</p>
+<pre><code>   · És una de les llicències més permissives.
+
+   · Permet que el programari es pugui utilitzar, modificar, redistribuir i fins i tot vendre, tant en projectes lliures com en propietaris.
+
+   · No obliga a mantenir la llicència original en treballs derivats.
+
+   · No inclou garanties ni responsabilitats del creador del programari.
+</code></pre>
+<p>BSD License</p>
+<p>Característiques:</p>
+<pre><code>   · És molt similar a la MIT License en termes de permissivitat.
+
+   · Ofereix llibertat completa per utilitzar, modificar i redistribuir el codi, tant en projectes lliures com privats.
+
+   · Existeixen diverses versions d'aquesta llicència, com la BSD de 2 clàusules (simplificada) i la BSD de 3 clàusules (amb més restriccions per a evitar que el nom dels autors s'utilitzi per a fins comercials).
+</code></pre>
+<p>Apache License 2.0</p>
+<p>Característiques:</p>
+<pre><code>   · Permet l'ús, modificació i distribució tant per a projectes lliures com comercials.
+
+   · Inclou una clàusula de patents, la qual protegeix els usuaris de litigis relacionats amb patents si utilitzen el codi.
+
+   · Els treballs derivats poden ser distribuïts sota altres llicències, però cal incloure una còpia de la llicència original i reconèixer l'autoria.
+</code></pre>
+<p>Mozilla Public License (MPL)</p>
+<p>Característiques:</p>
+<pre><code>   · Ofereix un copyleft suau, permetent que parts del programari es puguin incorporar a projectes privats, però mantenint la llicència lliure en el codi original i modificat.
+
+   · Molt adequada per a projectes grans amb components que poden ser reutilitzats en altres tipus de llicències.
+
+   · Utilitzada en projectes com Firefox.
+</code></pre>
+<p>Eclipse Public License (EPL)</p>
+<p>Característiques:</p>
+<pre><code>   · Té un copyleft suau similar al de la MPL.
+
+   · Permet la combinació de codi lliure i codi propietari, mantenint la llicència lliure només en el codi original o modificat que es distribueixi.
+
+   · Inclou proteccions legals contra reclamacions de patents.
+</code></pre>
+</blockquote>
+<p>Les llicències de programari lliure permissives i les llicències robustes (amb copyleft) ofereixen dos enfocaments diferents pel que fa a la gestió del codi. Les llicències permissives, com la MIT o la BSD, permeten una gran flexibilitat en l'ús, modificació i redistribució del programari, fins i tot en projectes propietaris o comercials. Aquesta flexibilitat facilita que el codi pugui ser integrat en una àmplia varietat de projectes, però no garanteix que les versions modificades es mantinguin lliures. En canvi, les llicències robustes, com la GPL, imposen restriccions més estrictes per assegurar que qualsevol modificació o treball derivat es distribueixi sota la mateixa llicència, protegint així la llibertat del codi a llarg termini. Això promou una comunitat oberta i col·laborativa, però limita l'ús del codi en projectes tancats o comercials. La decisió d'optar per una llicència permissiva o robusta dependrà de les prioritats del desenvolupador: més flexibilitat per a l'ús del codi o més control per garantir que es mantingui lliure.</p>
+<h4 id="altres-tipus-de-llicencies">Altres tipus de llicències</h4>
+<blockquote>
+<p>Llicència de Programari de Codi Obert (Open Source License)</p>
+<p>Tot i que sovint es confon amb el programari lliure, el programari de codi obert té algunes diferències subtils. Aquestes llicències també permeten accés al codi font i la seva modificació, però poden tenir menys restriccions pel que fa a la redistribució. Un exemple destacat és la MIT License.</p>
+<p>Característiques:</p>
+<pre><code>   · L'accés al codi font és obligatori.
+   · No sempre s'exigeix mantenir la mateixa llicència en versions modificades (no té efecte copyleft).
+   · Major permissivitat en termes d'ús comercial.
+</code></pre>
+<p>Llicència Permissiva (Permissive License)</p>
+<p>Aquest tipus de llicència permet la màxima llibertat als usuaris per fer servir, modificar i redistribuir el programari, fins i tot en projectes privats o comercials, sense imposar moltes restriccions. Un dels exemples més coneguts és la BSD License.</p>
+<p>Característiques:
+      · Permet la redistribució sota altres llicències, incloses llicències propietàries.
+      · Molt pocs requisits sobre com ha de ser redistribuït el programari.</p>
+<p>Llicència de Programari Propietari (Proprietary Software License)</p>
+<p>El programari propietari és aquell que no permet l'accés al codi font ni la seva modificació. L'usuari adquireix una llicència per utilitzar el programari, però sota condicions molt restrictives, sovint limitades a una màquina o a un ús específic.</p>
+<p>Característiques:</p>
+<pre><code>   · No es permet l'accés al codi font.
+   · Generalment no es permet la redistribució ni la modificació del programari.
+   · L'ús sovint està limitat per una llicència que restringeix el nombre d'usuaris o dispositius.
+</code></pre>
+<p>Llicència Freeware</p>
+<p>El programari freeware es pot utilitzar de manera gratuïta, però, com el programari propietari, el codi font no està disponible, i les restriccions d'ús poden variar segons l'acord de llicència.</p>
+<p>Característiques:</p>
+<pre><code>  · Es distribueix de manera gratuïta.
+  · No es permet l'accés ni la modificació del codi font.
+  · Pot estar limitat a ús personal o no comercial.
+</code></pre>
+<p>Llicència Shareware</p>
+<p>El shareware és una modalitat de programari que es distribueix de manera gratuïta per un període de temps limitat o amb funcionalitats restringides. L'objectiu és que l'usuari provi el programari i després compri una versió completa o amb totes les funcionalitats desbloquejades.</p>
+<p>Característiques:</p>
+<pre><code>   · Es permet la distribució gratuïta, però sovint amb funcionalitats limitades.
+   · Requereix pagament per accedir a la versió completa.
+   · No es permet la modificació ni redistribució sense permís del propietari.
+</code></pre>
+</blockquote>
+<h2 id="punts-de-restauracio">Punts de restauració</h2>
+<p>Els punts de restauració són còpies de seguretat de l'estat actual del sistema operatiu, incloent-hi la configuració del sistema i els fitxers essencials, que permeten restaurar el sistema a un estat anterior en cas de problemes. Aquests punts permeten que, si es produeixen errors o es fan canvis no desitjats en el sistema (com actualitzacions defectuoses o modificacions a fitxers crítics), es pugui tornar a un estat anterior, minimitzant la pèrdua de dades i el temps d'inactivitat. En el cas de les màquines virtuals amb les que estem treballant, aquesta eina ens és especialment útil per fer passos enrere quan ens equivoquem amb la configuració de la màquina i aquesta arriba a petar. Crear aquestes instantànees ens permetra tornar a la configuració donada d'un moment en concret així com si fós el punt de guardat d'un videojoc. Una eina molt útil i popular per poder fer això és <strong>Timeshift</strong> .</p>
+<h3 id="installacio-de-timeshift">Instal·lació de Timeshift</h3>
+<p>El primer pas abans de començar a instal·lar qualsevol programa hauria de ser assegurar-nos que els repositoris de paquets estiguin actualitzats.</p>
+<p><img alt="SudoAPTud" src="../Imatges/ts/01.png" /></p>
+<p>Ubuntu inclou Timeshift als seus repositoris oficials, de manera que es pot instal·lar directament amb la comanda següent:</p>
+<p><img alt="SudoAPTinst" src="../Imatges/ts/02.png" /></p>
+<p>Un cop instal·lat ens assegurem que aparegui l'icona buscant el nom de l'aplicació i l'executem.</p>
+<p><img alt="TSExec" src="../Imatges/ts/03.png" /></p>
+<p>Deixarem el tipus d'intantània com a <strong>RSYNC</strong> .</p>
+<p><img alt="SnapSType" src="../Imatges/ts/04.png" /></p>
+<p>La ubicació de la instantània serà al <strong>sda2</strong> que com podrem veure retrocedint a l'apartat de <em>Configuració de les particions</em> correspon al <strong>'/home'</strong>.</p>
+<p><img alt="SnapSUb" src="../Imatges/ts/05.png" /></p>
+<p>Al següent apartat configurarem la programació de les instantànies. Ara per ara, en el nostre cas on sols estem testejant, deixarem la configuració per defecte.</p>
+<p><img alt="CronTS" src="../Imatges/ts/06.png" /></p>
+<p>Per a les nostres instantànies ens interessa incloure solament tots els fixers de la carpeta de l'usuari i exclourem tots el del <strong>root</strong>. </p>
+<p><img alt="DirectorisTS" src="../Imatges/ts/07.png" /></p>
+<p>Un cop acabada la configuració, clicarem sobre <strong>Acaba</strong> per finalitzar. </p>
+<blockquote>
+<p>Amb aquesta configuració es crearan automàticament les instantànies amb la periodicitat que li haguem assignat. Si volem fer una instantània manual desde la terminal d'Ubuntu executarem la comanda <strong>sudo timeshift --create</strong> . En cas que el sistema tingui problemes i volem restaurar una instantània anterior executarem la comanda <strong>sudo timeshift --restore</strong> .</p>
+</blockquote>
+<p><img alt="EndTS" src="../Imatges/ts/08.png" /></p>
+<h2 id="configuracio-basica-de-xarxa">Configuració bàsica de xarxa</h2>
+<p>La configuració bàsica de la xarxa a Ubuntu implica establir paràmetres essencials com l'adreça IP, la passarel·la predeterminada, el servidor DNS i la configuració de la màscara de subxarxa. En aquest cas nosaltres configurarem manualment la IP del nostre dispositiu per fer-la estàtica.</p>
+<p>Dins a paràmetres accedim a <strong>Xarxa</strong> i farem clic sobre l'engranatfe de la connexió del cablejat per accedir a la configuració.</p>
+<p><img alt="OpenConf" src="../Imatges/static/01.png" /></p>
+<p>Dins de la configuració de la xarxa anem a l'apartat de <strong>IPv4</strong> i posem el mètode <strong>manual</strong> per poder configurar una <em>IP estàtica</em> amb les següents dades.  </p>
+<p><img alt="IPv4" src="../Imatges/static/02.png" /></p>
+<p>Un cop fet desem la configuració i pasem al terminal on executarem la següent comanda.</p>
+<p><img alt="TermCom" src="../Imatges/static/03.png" /></p>
+<p>Executem la comanda <strong>posant davant 'sudo' per executar-la com a superusuari</strong> perquè ens permeti modificar el <strong>.yaml</strong> i introduirem les següents dades.</p>
+<p><img alt="YamlConf" src="../Imatges/static/04.png" /></p>
+<p>Un cop configurat el <em>.yaml</em> premem <strong>Ctrl+O</strong> per desar i <strong>Ctrl+X</strong> per sortir de l'editor. Executem la última comanda per aplicar els canvis realitzats als paràmetres de la xarxa.</p>
+<p><img alt="NPApply" src="../Imatges/static/05.png" /> </p>
+<h2 id="installacio-basica-de-programes">Instal·lació bàsica de programes</h2>
+<p>Com a qualsevol (o gairebé qualsevol) SO, Ubuntu permet l'instal·lació de programari o <em>software</em> des de repositoris propis o externs i ens ofereix diferents mètodes. que veurem en aquest apartat, per fer possible aquesta instal·lació. Per als exemples intentarem instal·lar amb les diferents eines el <strong>GNU Image Manipulator Program</strong> .</p>
+<h3 id="installacio-des-de-lentorn-grafic">Instal·lació des de l'entorn gràfic</h3>
+<p>Ubuntu ofereix l'Ubuntu Software Center (més conegur com App Center), una interfície gràfica fàcil d'utilitzar per cercar, instal·lar i desinstal·lar aplicacions amb un sol clic. Només cal obrir la aplicació, buscar el programa desitjat, i fer clic a "Instal·lar".</p>
+<p><img alt="AppCenter" src="../Imatges/install/01.png" /></p>
+<h3 id="installacio-des-de-terminal">Instal·lació des de terminal</h3>
+<p>El programari també pot ser instal·lat des del terminal amb una serie d'eines i comandes. Algunes d'elles les veurem a continuació.</p>
+<h4 id="apt-advanced-package-tools">APT (Advanced Package Tools)</h4>
+<p>APT és una eina avançada de gestió de paquets que automatitza la instal·lació, actualització i eliminació de programes.</p>
+<p>La comanda sudo apt update actualitza la llista de paquets disponibles des dels repositoris configurats, assegurant-se que el sistema tingui la informació més recent sobre versions i nous paquets. Després de realitzar un update, sovint es recomana executar sudo apt upgrade, que instal·la les versions més recents de tots els paquets ja instal·lats al sistema, mantenint-lo al dia. Si es volen actualitzar només alguns paquets específics sense tocar la resta, es pot utilitzar sudo apt install <strong>nom_paquet</strong> , que instal·la o actualitza el paquet especificat. En cas que sigui necessari eliminar un paquet, la comanda adequada és sudo apt remove <strong>nom_paquet</strong> , que desinstal·la el paquet, però deixa intactes els fitxers de configuració. Si es vol eliminar completament un paquet, incloent els fitxers de configuració, cal emprar sudo apt purge <strong>nom_paquet</strong> .</p>
+<p>Per identificar paquets instal·lats o disponibles, es pot utilitzar apt search <strong>nom_paquet</strong> , que busca paquets per nom o descripció, o bé apt show <strong>nom_paquet</strong> , que proporciona informació detallada sobre un paquet específic, com la seva versió i dependències. Quan es vol netejar el sistema de paquets i biblioteques que ja no són necessaris, es pot fer servir sudo apt autoremove, que elimina automàticament els paquets orfes. Per a la neteja de paquets descarregats i emmagatzemats a la memòria cau (però no instal·lats), s'utilitza sudo apt clean, que allibera espai al sistema eliminant els fitxers de paquets descarregats.</p>
+<h5 id="installacio-de-gimp-amb-apt">Instal·lació de GIMP amb APT</h5>
+<ol>
+<li>Actualització de repositoris</li>
+</ol>
+<p><img alt="APTud" src="../Imatges/install/02.png" /></p>
+<ol>
+<li>Instal·lació paquets de GIMP.</li>
+</ol>
+<p><img alt="InstGIMP" src="../Imatges/install/03.png" /></p>
+<ol>
+<li>Executar GIMP.</li>
+</ol>
+<p><img alt="GIMP" src="../Imatges/install/11.png" /></p>
+<h4 id="dpkg-debian-package">DPKG (Debian Package)</h4>
+<p>El gestor de paquets DPKG és una eina fonamental per gestionar paquets '.deb' manualment en sistemes basats en Debian, com Ubuntu.</p>
+<p>Per instal·lar un paquet, s'utilitza la comanda sudo dpkg -i <strong>nom_paquet'</strong>.deb, que instal·la el paquet especificat des d'un fitxer .deb local. Si durant la instal·lació es produeixen errors per dependències trencades, es poden reparar amb sudo apt --fix-broken install. Per consultar els paquets instal·lats en el sistema, s'utilitza dpkg -l, que mostra una llista de tots els paquets instal·lats, incloent la seva versió i estat.</p>
+<p>Si necessites verificar si un paquet específic està instal·lat, pots utilitzar dpkg -s <strong>nom_paquet</strong> , que mostra la informació de l'estat del paquet. Per desinstal·lar un paquet mantenint els fitxers de configuració, s'usa la comanda sudo dpkg -r <strong>nom_paquet</strong> , mentre que si es vol eliminar el paquet i tots els fitxers associats, incloent les configuracions, es fa servir sudo dpkg --purge <strong>nom_paquet</strong>.</p>
+<p>En cas que vulguis veure el contingut d'un paquet .deb sense instal·lar-lo, pots fer servir dpkg -c <strong>nom_paquet</strong> .deb per llistar els fitxers del paquet. Si el que vols és extreure informació sobre els fitxers que s'han instal·lat des d'un paquet concret, la comanda adequada és dpkg -L <strong>nom_paquet</strong> . Finalment, per reinstal·lar un paquet, pots utilitzar sudo dpkg --configure -a, que reconfigura els paquets pendents de configuració, especialment útil quan s'han interromput instal·lacions.</p>
+<h5 id="installacio-de-gimp-amb-dpkg">Instal·lació de GIMP amb DPKG</h5>
+<ol>
+<li>Descarregem l'últim paquet '.deb' de GIMP utilitzant la comanda <strong>wget</strong></li>
+</ol>
+<p><img alt="wget" src="../Imatges/install/05.png" /></p>
+<ol>
+<li>Instal·lem el paquet Debian amb la comanda <strong>sudo dpkg -i 'nom_paquet'</strong> .</li>
+</ol>
+<p><img alt="-i" src="../Imatges/install/06.png" /></p>
+<ol>
+<li>Corretgim les dependpencies que s'han pogut trovar trencades.</li>
+</ol>
+<p><img alt="fix-brkn" src="../Imatges/install/07.png" /></p>
+<ol>
+<li>Executem GIMP.</li>
+</ol>
+<p><img alt="GIMP" src="../Imatges/install/11.png" /></p>
+<h4 id="aptitude">Aptitude</h4>
+<p>Aptitude és un gestor de paquets avançat que ofereix més control sobre la instal·lació i gestió de paquets en comparació amb altres eines com apt o dpkg. És especialment útil per resoldre conflictes de dependències. A continuació es detallen algunes de les comandes més utilitzades d'aptitude i les seves funcions.</p>
+<p>Per instal·lar un paquet, s'utilitza la comanda sudo aptitude install <strong>nom_paquet</strong> , que descarrega i instal·la el paquet especificat juntament amb totes les seves dependències. Si el que necessites és eliminar un paquet, pots utilitzar sudo aptitude remove <strong>nom_paquet</strong> , que elimina el paquet però manté els seus fitxers de configuració. Si vols una eliminació completa, incloent els fitxers de configuració, has d'usar sudo aptitude purge <strong>nom_paquet</strong> .</p>
+<p>Per actualitzar la llista de paquets disponibles als repositoris configurats, s'executa sudo aptitude update. Aquest pas és important per assegurar que tens les últimes versions disponibles. Si vols actualitzar els paquets instal·lats al sistema, pots utilitzar la comanda sudo aptitude upgrade, que actualitza tots els paquets disponibles sense eliminar ni instal·lar nous paquets. Si desitges una actualització més agressiva que també permeti eliminar i instal·lar nous paquets per completar l'actualització, la comanda adequada és sudo aptitude full-upgrade.</p>
+<p>Aptitude també permet cercar paquets amb aptitude search <strong>nom_paquet</strong> , que retorna una llista dels paquets que coincideixen amb el criteri de cerca. Per obtenir més informació sobre un paquet específic, incloent-ne la descripció, versió i dependències, es pot utilitzar aptitude show <strong>nom_paquet</strong> . Finalment, per netejar els paquets que ja no són necessaris, es pot utilitzar sudo aptitude autoclean o sudo aptitude clean. La primera només elimina els paquets que ja no són necessaris però encara tenen versions disponibles, mentre que la segona elimina tots els paquets emmagatzemats a la memòria cau.</p>
+<h5 id="installacio-de-gimp-amb-aptitude">Instal·lació de GIMP amb APTITUDE</h5>
+<p>Actualitzem la llista de paquets disponibles al sistema amb la següent comanda</p>
+<p><img alt="AptiUD" src="../Imatges/install/08.png" /></p>
+<p>Instal·lem GIMP amb la comanda corresponent.</p>
+<p><img alt="AptiInst" src="../Imatges/install/09.png" /></p>
+<p>Si vols revisar les dependències o paquets relacionats abans de la instal·lació, pots fer-ho utilitzant <strong>aptitude show 'nom_programa'</strong> .</p>
+<p><img alt="AptiShow" src="../Imatges/install/10.png" /></p>
+<p>Executem el programa amb la comanda adequada.</p>
+<p><img alt="GimpEx" src="../Imatges/install/11.png" /></p>
+<h3 id="afegir-repositoris">Afegir repositoris</h3>
+<p>Afegir repositoris a Ubuntu permet accedir a <em>software</em> que no està disponible als repositoris oficials del SO, com versions més recents o programes propietaris (Google i les seves aplicacions o controladors de hardware...). A més, facilita les actualitzacions. Els repositoris són fonts segures i verificades que permeten instal·lar i actualitzar <em>software</em> de manera senzilla.</p>
+<h2 id="gestors-darrancada">Gestors d'arrancada</h2>
+<p>Els gestors d'arrencada són programes que s'executen en l'arrencada del sistema i permeten seleccionar quin sistema operatiu o quin nucli del sistema vols iniciar.</p>
+<h3 id="grub2">GRUB2</h3>
+<p>GRUB2 és el gestor d'arrencada més utilitzat en sistemes Linux. És molt flexible i suporta múltiples sistemes operatius, cosa que el fa ideal per a entorns de doble arrencada. GRUB2 permet personalitzar el procés d'arrencada i inclou eines per solucionar problemes de càrrega.</p>
+<h3 id="mbr-master-boot-record">MBR (Master Boot Record)</h3>
+<p>L’MBR és el tipus tradicional de particionament utilitzat pels discs durs més antics. Conté informació sobre com arrencar el sistema operatiu i com està estructurat el disc. És compatible amb sistemes antics, però té limitacions, com el màxim de 4 particions primàries i un límit de 2 TB per partició.</p>
+<h3 id="gpt-guid-partition-table">GPT (GUID Partition Table)</h3>
+<p>El GPT és el sistema de particionament modern, utilitzat majoritàriament amb sistemes UEFI. Supera les limitacions de l’MBR, permetent un nombre gairebé il·limitat de particions i suportant discs durs de grans dimensions (més de 2 TB).</p>
+<h2 id="recuperacio-de-gestors-darrencada">Recuperació de gestors d'arrencada</h2>
+<p>El concepte de "recuperació dels gestors d'arrencada" fa referència al procés de reparar o restaurar el gestor d'arrencada (bootloader) d'un sistema operatiu quan aquest ha estat danyat, sobreescrit o eliminat, impedint que el sistema operatiu s'iniciï correctament.</p>
+<h3 id="boot-repair">Boot-Repair</h3>
+<p>Boot-Repair és una eina gràfica dissenyada per facilitar la restauració de GRUB i altres gestors d'arrencada. Aquesta eina detecta automàticament els problemes amb el gestor d'arrencada i proporciona opcions per restaurar-lo sense necessitat de coneixements tècnics avançats.</p>
+<h4 id="utilitzacio-de-boot-repair">Utilització de Boot-Repair</h4>
+<ol>
+<li>Afegim des del terminal el PPA de Boot-Repair.</li>
+</ol>
+<p><img alt="PPABR" src="../Imatges/br/01.png" /></p>
+<ol>
+<li>Actualitzem repositoris.</li>
+</ol>
+<p><img alt="Update" src="../Imatges/br/02.png" /></p>
+<ol>
+<li>Instal·lem Boot-Repair.</li>
+</ol>
+<p><img alt="BRInst" src="../Imatges/br/03.png" /></p>
+<ol>
+<li>Executem Boot-Repair.</li>
+</ol>
+<p><img alt="ExBR" src="../Imatges/br/04.png" /></p>
+<ol>
+<li>Seleccionem l'opció <strong>Reparació recomanada</strong> i seguim les instruccions. El programa detectarà i arreglarà el problema del gestor d'arrencada.</li>
+</ol>
+<p><img alt="RecRepair" src="../Imatges/br/05.png" /> </p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

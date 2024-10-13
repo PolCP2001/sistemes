@@ -1,0 +1,7 @@
+site_name: Implantació de Sistemes Operatius - POL CASANOVA PUIG
+nav:
+- Introducció: index.md
+- Sprint1: Sprint1.md
+theme:
+  name: material
+
