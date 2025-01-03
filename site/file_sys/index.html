@@ -1,0 +1,1435 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../sp_use/">
+      
+      
+        <link rel="next" href="../share_src/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Sistema de fitxers - Implantació de Sistemes Operatius - POL CASANOVA PUIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sistemes-de-fitxers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-header__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantació de Sistemes Operatius - POL CASANOVA PUIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sistema de fitxers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-nav__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Implantació de Sistemes Operatius - POL CASANOVA PUIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació del sistema operatiu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Particions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llicence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llicenciament
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Punts de restauració
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració bàsica de xarxa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../softinst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació bàsica de programes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recuperació de gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonezilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imp_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fitxers importants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió d'usuaris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proc_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de processos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special_perm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sp_use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aplicació de permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sistema de fitxers
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de fitxers
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mida-sector" class="md-nav__link">
+    Mida sector
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mida-block" class="md-nav__link">
+    Mida block
+  </a>
+  
+    <nav class="md-nav" aria-label="Mida block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mida-del-fitxer-vs-mida-del-bloc" class="md-nav__link">
+    Mida del fitxer vs mida del bloc**
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fragmentacio" class="md-nav__link">
+    Fragmentació
+  </a>
+  
+    <nav class="md-nav" aria-label="Fragmentació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragmentacio-interna" class="md-nav__link">
+    Fragmentació interna
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragmentacio-externa" class="md-nav__link">
+    Fragmentació externa
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desfragmentacio" class="md-nav__link">
+    Desfragmentació
+  </a>
+  
+    <nav class="md-nav" aria-label="Desfragmentació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recomanacions-generals" class="md-nav__link">
+    Recomanacions generals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipus-de-formateig" class="md-nav__link">
+    Tipus de Formateig
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipus de Formateig">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formateig-de-baix-nivell" class="md-nav__link">
+    Formateig de Baix Nivell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formateig-de-nivell-mitja" class="md-nav__link">
+    Formateig de Nivell Mitjà
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formateig-dalt-nivell-o-rapid" class="md-nav__link">
+    Formateig d'Alt Nivell o Ràpid
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracio-de-blocs-i-pagines" class="md-nav__link">
+    Configuració de blocs i pàgines
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuració de blocs i pàgines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casos-practics" class="md-nav__link">
+    Casos pràctics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recomanacions-generals_1" class="md-nav__link">
+    Recomanacions generals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#particions" class="md-nav__link">
+    Particions
+  </a>
+  
+    <nav class="md-nav" aria-label="Particions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-una-particio" class="md-nav__link">
+    Què és una partició?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avantatges-de-les-particions" class="md-nav__link">
+    Avantatges de les particions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-gestionar-particions" class="md-nav__link">
+    Com gestionar particions?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recomanacions-generals_2" class="md-nav__link">
+    Recomanacions generals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../share_src/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de particions i compartició de recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autotask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Còpies de Seguretat i Automatitzacions de Tasques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quotes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quotes per a usuaris i grups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mida-sector" class="md-nav__link">
+    Mida sector
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mida-block" class="md-nav__link">
+    Mida block
+  </a>
+  
+    <nav class="md-nav" aria-label="Mida block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mida-del-fitxer-vs-mida-del-bloc" class="md-nav__link">
+    Mida del fitxer vs mida del bloc**
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fragmentacio" class="md-nav__link">
+    Fragmentació
+  </a>
+  
+    <nav class="md-nav" aria-label="Fragmentació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fragmentacio-interna" class="md-nav__link">
+    Fragmentació interna
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fragmentacio-externa" class="md-nav__link">
+    Fragmentació externa
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desfragmentacio" class="md-nav__link">
+    Desfragmentació
+  </a>
+  
+    <nav class="md-nav" aria-label="Desfragmentació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recomanacions-generals" class="md-nav__link">
+    Recomanacions generals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipus-de-formateig" class="md-nav__link">
+    Tipus de Formateig
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipus de Formateig">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formateig-de-baix-nivell" class="md-nav__link">
+    Formateig de Baix Nivell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formateig-de-nivell-mitja" class="md-nav__link">
+    Formateig de Nivell Mitjà
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formateig-dalt-nivell-o-rapid" class="md-nav__link">
+    Formateig d'Alt Nivell o Ràpid
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracio-de-blocs-i-pagines" class="md-nav__link">
+    Configuració de blocs i pàgines
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuració de blocs i pàgines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#casos-practics" class="md-nav__link">
+    Casos pràctics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recomanacions-generals_1" class="md-nav__link">
+    Recomanacions generals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#particions" class="md-nav__link">
+    Particions
+  </a>
+  
+    <nav class="md-nav" aria-label="Particions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-una-particio" class="md-nav__link">
+    Què és una partició?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avantatges-de-les-particions" class="md-nav__link">
+    Avantatges de les particions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-gestionar-particions" class="md-nav__link">
+    Com gestionar particions?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recomanacions-generals_2" class="md-nav__link">
+    Recomanacions generals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="sistemes-de-fitxers">Sistemes de Fitxers</h1>
+<h2 id="mida-sector">Mida sector</h2>
+<p>El sector és la unitat mínima física on es guarden les dades en un disc dur. Per defecte, la mida d'un sector és de <strong>512 bytes</strong>. Això significa que cada vegada que s'emmagatzema informació en un disc, com a mínim s'utilitza aquest espai, encara que la dada sigui més petita.</p>
+<h2 id="mida-block">Mida block</h2>
+<p>El sistema operatiu no treballa directament amb sectors físics, sinó amb blocs lògics. Un bloc és una agrupació de sectors, i la mida estàndard d'un bloc és de <strong>4096 bytes</strong>.</p>
+<p>Això implica que:</p>
+<ul>
+<li>
+<p>Un bloc pot contenir <strong>8 sectors de 512 bytes</strong> cadascun.</p>
+</li>
+<li>
+<p>Tot i que un fitxer ocupi menys espai, com per exemple 100 bytes, se li assignarà un bloc complet de 4096 bytes. Això genera un petit espai "desaprofitat" dins del bloc.</p>
+</li>
+</ul>
+<h3 id="mida-del-fitxer-vs-mida-del-bloc">Mida del fitxer vs mida del bloc**</h3>
+<p>Per entendre la diferència entre la mida real d'un fitxer i la mida del bloc que ocupa, crearem un fitxer anomenat <code>FILE</code> i escriurem alguna dada dins. A continuació, comprovarem la seva mida real i la mida del bloc assignat.</p>
+<p><img alt="dubdush" src="../Imatges/img/71.png" /></p>
+<p><strong>Observació</strong>:</p>
+<ul>
+<li>
+<p>La mida del fitxer <code>FILE</code> és de <strong>6 bytes</strong>.</p>
+</li>
+<li>
+<p>El sistema operatiu li assigna un bloc de 4,0 KB, ja que és la mida estàndard per a blocs en el sistema operatiu.</p>
+</li>
+</ul>
+<p>Això exemplifica com, fins i tot si un fitxer és molt petit, ocupa almenys un bloc complet.</p>
+<h2 id="fragmentacio">Fragmentació</h2>
+<p>La fragmentació és un fenomen que es produeix quan les dades emmagatzemades en un disc no estan organitzades de manera eficient. Hi ha dos tipus principals de fragmentació: <strong>interna</strong> i <strong>externa</strong>.</p>
+<h3 id="fragmentacio-interna">Fragmentació interna</h3>
+<p>La fragmentació interna es produeix dins dels blocs del sistema operatiu. Quan un fitxer no ocupa tot l’espai disponible en un bloc, es genera un espai desaprofitat. Aquest espai no pot ser utilitzat per cap altre fitxer, i, com més petits siguin els fitxers, més espai desaprofitat hi haurà.</p>
+<p><strong>Exemple pràctic:</strong></p>
+<p>Si un fitxer ocupa 100 bytes i el bloc assignat té una mida de 4096 bytes, els 3996 bytes restants del bloc es perden, ja que no es poden utilitzar per a altres dades.</p>
+<p><strong>Solucions:</strong></p>
+<ul>
+<li>
+<p><strong>Ajustar la mida del bloc</strong>: Es poden utilitzar blocs més petits per optimitzar l'espai, però això pot impactar negativament la velocitat de lectura i escriptura.</p>
+</li>
+<li>
+<p><strong>Utilitzar blocs més grans</strong>: És ideal per a fitxers grans, com ara vídeos o arxius ISO, ja que redueix la fragmentació interna, però no és recomanable per a fitxers petits.</p>
+</li>
+</ul>
+<h3 id="fragmentacio-externa">Fragmentació externa</h3>
+<p>La fragmentació externa es produeix quan les dades d’un fitxer es guarden en blocs no consecutius del disc. Això passa sovint amb el temps, a mesura que es creen, editen i eliminen fitxers. El resultat és que el sistema operatiu necessita més temps per accedir a les dades, ja que ha de localitzar múltiples blocs en lloc d’un sol segment contigu.</p>
+<p><strong>Exemple pràctic:</strong></p>
+<p>Imagina que tens un disc gairebé ple. Quan es crea un fitxer, les seves dades es poden repartir en diferents blocs disponibles però no consecutius. Això fa que la lectura del fitxer sigui més lenta.</p>
+<p><strong>Solucions:</strong></p>
+<ul>
+<li><strong>Desfragmentació</strong>: Reorganitzar els blocs de manera que els fitxers siguin contigus al disc. Aquesta acció millora la velocitat de lectura i escriptura.</li>
+</ul>
+<h2 id="desfragmentacio">Desfragmentació</h2>
+<p>La desfragmentació és el procés de reorganitzar els blocs d’un disc per agrupar els fitxers en segments contigus i reduir la fragmentació externa. Aquest procés pot millorar significativament el rendiment del sistema, especialment en discos HDD (no tan rellevant en discos SSD).</p>
+<p><strong>Consideracions:</strong></p>
+<p>La desfragmentació és especialment útil en sistemes que utilitzen <strong>discs durs HDD</strong>, ja que millora l'accés seqüencial i l'eficiència del sistema.</p>
+<p>En <strong>discs SSD</strong>, la desfragmentació no és necessària, ja que l'accés a les dades no depèn de la ubicació física al disc. A més, <strong>aquest procés pot reduir la vida útil del disc SSD</strong>.</p>
+<p><strong>Eines útils:</strong></p>
+<p><code>Windows</code>:</p>
+<p>Windows inclou una eina integrada que es pot executar manualment o programar automàticament.</p>
+<p>Per accedir-hi: </p>
+<ul>
+<li>
+<p>Obre el <strong>menú d'inici</strong>. </p>
+</li>
+<li>
+<p>Cerca "<strong>Desfragmentador de discs</strong>". </p>
+</li>
+</ul>
+<p>Seguidament, segueix aquests passos:</p>
+<ul>
+<li>
+<p>Selecciona la <strong>unitat que vols desfragmentar</strong>.</p>
+</li>
+<li>
+<p>Fes clic a "<strong>Analitza</strong>" per veure el grau de fragmentació.</p>
+</li>
+</ul>
+<p>Després de l'anàlisis, ds cal: 
+- Fes clic a "<strong>Optimitza</strong>" o "<strong>Desfragmenta</strong>" per iniciar el procés.</p>
+<p><code>Linux</code>:</p>
+<p>En sistemes amb particions <code>ext4</code>, es poden utilitzar eines com <strong>e4defrag</strong> per desfragmentar fitxers o particions específiques.</p>
+<p><strong>Comanda per desfragmentar una partició específica:</strong> </p>
+<p><code>e4defrag /dev/sdX1</code></p>
+<p><strong>Exemples pràctics:</strong></p>
+<ul>
+<li>
+<p><strong>Windows</strong>: Si el teu disc dur HDD comença a anar més lent després d'instal·lar i esborrar molts fitxers, utilitza l'eina de desfragmentació per reorganitzar els blocs. Això pot millorar significativament la velocitat d'accés als fitxers.</p>
+</li>
+<li>
+<p><strong>Linux</strong>: En un servidor que utilitza una partició ext4 molt fragmentada amb fitxers grans i petits, executar una eina com e4defrag pot millorar el rendiment de lectura i escriptura.</p>
+</li>
+</ul>
+<h3 id="recomanacions-generals">Recomanacions generals</h3>
+<ul>
+<li>
+<p><strong>Per a discs HDD</strong>: Desfragmenta periòdicament, especialment si la unitat s’utilitza per a emmagatzematge intensiu o en sistemes antics.</p>
+</li>
+<li>
+<p><strong>Per a discs SSD</strong>: Evita la desfragmentació, ja que no aporta millores i pot danyar el disc.</p>
+</li>
+<li>
+<p><strong>Planificació</strong>: Configura desfragmentacions automàtiques en Windows per mantenir un rendiment òptim.</p>
+</li>
+</ul>
+<h2 id="tipus-de-formateig">Tipus de Formateig</h2>
+<h3 id="formateig-de-baix-nivell">Formateig de Baix Nivell</h3>
+<ul>
+<li>
+<p>S'executa directament sobre el disc físic a nivell de sectors.</p>
+</li>
+<li>
+<p>Detecta i intenta reparar sectors defectuosos.</p>
+</li>
+<li>
+<p>Esborra completament els fitxers, fent que la seva recuperació sigui gairebé impossible.</p>
+</li>
+</ul>
+<p><strong>Exemple pràctic:</strong></p>
+<p>Els fabricants de discs realitzen aquest tipus de formateig abans de distribuir els discos al mercat. Aquest procés crea la infraestructura física necessària per a l'emmagatzematge de dades.</p>
+<p>Els usuaris finals no solen realitzar aquest tipus de formateig, però eines especialitzades permeten utilitzar-lo en casos de necessitat per reparar sectors defectuosos.</p>
+<h3 id="formateig-de-nivell-mitja">Formateig de Nivell Mitjà</h3>
+<ul>
+<li>
+<p>Configura el sistema de fitxers (com ara <code>FAT32</code>, <code>NTFS</code> o <code>ext4</code>).</p>
+</li>
+<li>
+<p>No esborra físicament les dades, sinó que elimina la informació sobre la seva ubicació al sistema de fitxers.</p>
+</li>
+<li>
+<p>Els fitxers es poden recuperar amb eines especialitzades fins que es sobreescriguin.</p>
+</li>
+</ul>
+<p><strong>Exemple pràctic:</strong></p>
+<p>Canviar el sistema de fitxers d'un disc dur extern de <code>FAT32</code> a <code>NTFS</code> per poder emmagatzemar <strong>fitxers més grans de 4 GB</strong>.</p>
+<p>Útil quan necessites optimitzar el sistema de fitxers segons els tipus de dades que es gestionen.</p>
+<h3 id="formateig-dalt-nivell-o-rapid">Formateig d'Alt Nivell o Ràpid</h3>
+<ul>
+<li>
+<p>Una variant del formateig de nivell mitjà, elimina únicament les metadades del sistema de fitxers.</p>
+</li>
+<li>
+<p>És més ràpid però menys segur si es vol evitar que les dades es puguin recuperar.</p>
+</li>
+</ul>
+<p><strong>Exemple pràctic:</strong> 
+Utilitzar el formateig ràpid per reinicialitzar una unitat USB o un disc dur extern de manera immediata. Aquest tipus de formateig s'usa habitualment per alliberar espai ràpidament sense eliminar físicament les dades existents.</p>
+<h2 id="configuracio-de-blocs-i-pagines">Configuració de blocs i pàgines</h2>
+<p>Quan es formata un disc, és important seleccionar correctament la mida del bloc (o unitat d'assignació). Aquesta configuració afecta directament l'eficiència de l'emmagatzematge i el rendiment del sistema. També hi ha el concepte de <strong>pàgina de memòria</strong>, que és gestionat pel sistema operatiu.</p>
+<p><strong>Comparativa: Pàgines de memòria i blocs de sistema de fitxers</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Configuració</strong></th>
+<th><strong>Mida Gran (Blocs/Pàgines)</strong></th>
+<th><strong>Mida Petita (Blocs/Pàgines)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gestió de memòria (pàgines)</strong></td>
+<td><strong>Quan és adequada:</strong> Per aplicacions que requereixen computació intensiva, bases de dades grans o entorns virtualitzats.</td>
+<td><strong>Quan és adequada:</strong> Sistemes de computació general, amb RAM limitada o sistemes encastats.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Avantatges:</strong> Redueix la mida de les taules de pàgines, ideal per gestionar grans conjunts de dades i memòria elevada.</td>
+<td><strong>Avantatges:</strong> Optimitza l'ús de la memòria en processos petits, redueix la memòria malgastada i proporciona una gestió més precisa.</td>
+</tr>
+<tr>
+<td><strong>Sistema de fitxers (blocs)</strong></td>
+<td><strong>Quan és adequat:</strong> Per servidors de contingut multimèdia, emmagatzematge de fitxers grans (com vídeos o imatges) o còpies de seguretat.</td>
+<td><strong>Quan és adequat:</strong> Per sistemes que gestionen molts fitxers petits (codi font, documents) o volums d'arrencada.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Avantatges:</strong> Incrementa l'eficiència amb fitxers grans, minimitza la càrrega associada a les metadades i és ideal per a lectures i escriptures seqüencials.</td>
+<td><strong>Avantatges:</strong> Redueix l'espai malgastat (slack space), és més adequat per a accés aleatori i eficient per gestionar fitxers petits.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="casos-practics">Casos pràctics</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Sistema de Fitxers</strong></th>
+<th><strong>Cas d'Ús: Pel·lícules / Mitjans Grans</strong></th>
+<th><strong>Cas d'Ús: Música / Fotos</strong></th>
+<th><strong>Cas d'Ús: Documents / Fitxers Generals</strong></th>
+<th><strong>Cas d'Ús: Disc d'Arrencada / Sistema</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NTFS (Windows)</strong></td>
+<td>Bloc gran (p. ex., 64 KB). Eficient per a fitxers grans.</td>
+<td>Bloc estàndard (p. ex., 4 KB). Equilibri general.</td>
+<td>Bloc estàndard (p. ex., 4 KB). Rendiment fiable.</td>
+<td>Bloc estàndard (p. ex., 4 KB). Compatibilitat i rendiment.</td>
+</tr>
+<tr>
+<td><strong>EXT4 (Linux)</strong></td>
+<td>Bloc gran (4-64 KB). Redueix la fragmentació en fitxers grans.</td>
+<td>Bloc estàndard (p. ex., 4 KB). Bon rendiment.</td>
+<td>Bloc estàndard (p. ex., 4 KB). Molt eficient.</td>
+<td>Bloc estàndard (p. ex., 4 KB). Suport per journaling.</td>
+</tr>
+<tr>
+<td><strong>APFS (macOS)</strong></td>
+<td>Configuració per defecte. Optimitzat per SSDs.</td>
+<td>Configuració per defecte. Compatible amb tot.</td>
+<td>Configuració per defecte. Protecció contra fallades.</td>
+<td>Configuració per defecte. Rendiment i fiabilitat.</td>
+</tr>
+<tr>
+<td><strong>XFS (Linux)</strong></td>
+<td>Configuració estàndard. Ideal per a grans volums de dades.</td>
+<td>Configuració estàndard. Bon rendiment escalable.</td>
+<td>Configuració estàndard. Alt rendiment.</td>
+<td>No habitual per a discs d'arrencada, però eficient per a sistemes grans.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="recomanacions-generals_1">Recomanacions generals</h3>
+<ul>
+<li>
+<p><strong>Per a fitxers grans</strong>: Trieu blocs més grans (p. ex., 64 KB o més).</p>
+</li>
+<li>
+<p><strong>Per a fitxers petits</strong>: Utilitzeu blocs petits (p. ex., 4 KB) per evitar espai desaprofitat.</p>
+</li>
+<li>
+<p><strong>Sistema operatiu i arrencada</strong>: Mantingueu la mida estàndard (p. ex., 4 KB) per garantir compatibilitat i rendiment.</p>
+</li>
+</ul>
+<h2 id="particions">Particions</h2>
+<p>Les particions permeten dividir un disc físic en múltiples unitats lògiques, facilitant l'organització de dades, la instal·lació de diversos sistemes operatius i l'optimització del rendiment.</p>
+<h3 id="que-es-una-particio">Què és una partició?</h3>
+<p>Una partició és una divisió lògica d'un disc dur o SSD que permet gestionar diferents tipus de dades o sistemes operatius de manera separada. Cada partició actua com una unitat independent, i pot tenir el seu propi sistema de fitxers.</p>
+<h3 id="avantatges-de-les-particions">Avantatges de les particions</h3>
+<ul>
+<li>
+<p><strong>Organització de dades</strong>: Mantenir els fitxers personals separats dels fitxers del sistema operatiu facilita la gestió i evita pèrdues accidentals.</p>
+</li>
+<li>
+<p><strong>Compatibilitat</strong>: Permet tenir diferents sistemes operatius, com Windows i Linux, en el mateix disc.</p>
+</li>
+<li>
+<p><strong>Còpies de seguretat</strong>: Les particions dedicades a les còpies de seguretat protegeixen les dades en cas d'errors al sistema principal.</p>
+</li>
+</ul>
+<h3 id="com-gestionar-particions">Com gestionar particions?</h3>
+<p><code>Windows</code></p>
+<p><strong>Windows</strong> inclou eines gràfiques per gestionar particions, com la <strong>Gestió de discs</strong>. Aquesta eina permet crear, redimensionar i formatar particions sense necessitat de programari extern.</p>
+<p><strong>Passos principals</strong>:</p>
+<ul>
+<li>
+<p>Obre la <strong>Gestió de discs</strong> prement <code>Windows + X</code> i seleccionant "<strong>Gestió de discs</strong>".</p>
+</li>
+<li>
+<p>Selecciona el disc que vols particionar i fes clic amb el botó dret per reduir o crear particions.</p>
+</li>
+<li>
+<p>Assigna un sistema de fitxers com NTFS o FAT32 i una lletra d'unitat.</p>
+</li>
+<li>
+<p>Aplica els canvis i espera que es completin.</p>
+</li>
+</ul>
+<p><code>Linux</code></p>
+<p>En sistemes <strong>Linux</strong>, les particions es poden gestionar mitjançant eines de línia de comandes, com <code>fdisk</code> o <code>parted</code>, o mitjançant eines gràfiques com <code>GParted</code>.</p>
+<p><strong>Gestió amb <code>fdisk</code></strong>:</p>
+<ul>
+<li>
+<p>Llista els discs disponibles amb la comanda <code>"sudo fdisk -l"</code>.</p>
+</li>
+<li>
+<p>Selecciona el disc que vols particionar amb <code>"sudo fdisk /dev/sdX"</code> (substitueix <code>/dev/sdX</code> pel disc desitjat).</p>
+</li>
+<li>
+<p>Crea una partició nova prement <code>n</code> i defineix les mides i el tipus.</p>
+</li>
+<li>
+<p>Escriu els canvis amb <code>w</code> i formatar la partició amb <code>"sudo mkfs.ext4 /dev/sdX1"</code>.</p>
+</li>
+</ul>
+<p><strong>Gestió amb <code>GParted</code>:</strong></p>
+<ul>
+<li>
+<p>Instal·la <code>GParted</code> amb <code>"sudo apt-get install gparted"</code>.</p>
+</li>
+<li>
+<p>Obre l'eina amb permisos d'administrador <code>"sudo gparted"</code>.</p>
+</li>
+<li>
+<p>Selecciona el disc, crea particions noves i aplica els canvis.</p>
+</li>
+</ul>
+<h3 id="recomanacions-generals_2">Recomanacions generals</h3>
+<ul>
+<li>
+<p><strong>Fes còpies de seguretat</strong>: Abans de modificar particions, assegura't de fer una còpia de seguretat de les dades importants.</p>
+</li>
+<li>
+<p><strong>Planifica les particions</strong>: Decideix quantes particions necessites i per a què les utilitzaràs (sistema operatiu, dades personals, còpies de seguretat, etc.).</p>
+</li>
+<li>
+<p><strong>Tria el sistema de fitxers adequat</strong>: Per a Windows, NTFS és recomanable; per a Linux, ext4 és la millor opció en la majoria dels casos.</p>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

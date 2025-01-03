@@ -1,0 +1,1671 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../special_perm/">
+      
+      
+        <link rel="next" href="../file_sys/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Aplicació de permisos especials i ACLs - Implantació de Sistemes Operatius - POL CASANOVA PUIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#us-dels-permisos-amb-chown-chgrp-i-chmod" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-header__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantació de Sistemes Operatius - POL CASANOVA PUIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aplicació de permisos especials i ACLs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-nav__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Implantació de Sistemes Operatius - POL CASANOVA PUIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació del sistema operatiu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Particions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llicence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llicenciament
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Punts de restauració
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració bàsica de xarxa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../softinst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació bàsica de programes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recuperació de gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonezilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imp_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fitxers importants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió d'usuaris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proc_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de processos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special_perm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Aplicació de permisos especials i ACLs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Aplicació de permisos especials i ACLs
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creacio-dun-directori" class="md-nav__link">
+    Creació d'un directori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignacio-de-grup-propietari-del-directori" class="md-nav__link">
+    Assignació de grup propietari del directori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignacio-de-permisos-del-directori" class="md-nav__link">
+    Assignació de permisos del directori
+  </a>
+  
+    <nav class="md-nav" aria-label="Assignació de permisos del directori">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#per-comprovar" class="md-nav__link">
+    Per comprovar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificacions-requerides-donar-als-usuaris-acces-al-grup-propietari" class="md-nav__link">
+    Modificacions requerides: donar als usuaris accès al grup propietari
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esborrat-de-fitxers-i-directoris" class="md-nav__link">
+    Esborrat de fitxers i directoris
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herencia-de-grup" class="md-nav__link">
+    Herència de grup
+  </a>
+  
+    <nav class="md-nav" aria-label="Herència de grup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#com-funciona-chmod-2xxx" class="md-nav__link">
+    Com funciona chmod 2XXX?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beneficis-de-chmod-2770" class="md-nav__link">
+    Beneficis de chmod 2770
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#situacions-recomanades-per-utilitzar-la-configuracio-2770" class="md-nav__link">
+    Situacions recomanades per utilitzar la configuració 2770
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acl" class="md-nav__link">
+    ACL
+  </a>
+  
+    <nav class="md-nav" aria-label="ACL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permisos-actuals-del-directori-carpeta1" class="md-nav__link">
+    Permisos actuals del directori carpeta1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio-de-les-acl" class="md-nav__link">
+    Comprovació de les ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-de-les-acl" class="md-nav__link">
+    Ús de les ACL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sticky-bit" class="md-nav__link">
+    Sticky Bit
+  </a>
+  
+    <nav class="md-nav" aria-label="Sticky Bit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-sticky-bit" class="md-nav__link">
+    Què és Sticky Bit?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-funciona" class="md-nav__link">
+    Com funciona?
+  </a>
+  
+    <nav class="md-nav" aria-label="Com funciona?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-practic" class="md-nav__link">
+    Exemple pràctic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#umask" class="md-nav__link">
+    Umask
+  </a>
+  
+    <nav class="md-nav" aria-label="Umask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canviar-umask-temporalment-i-crear-un-fitxer" class="md-nav__link">
+    Canviar Umask temporalment i crear un fitxer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sgid" class="md-nav__link">
+    SGID
+  </a>
+  
+    <nav class="md-nav" aria-label="SGID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionament-amb-fitxers" class="md-nav__link">
+    Funcionament amb fitxers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcionament-amb-directoris" class="md-nav__link">
+    Funcionament amb directoris
+  </a>
+  
+    <nav class="md-nav" aria-label="Funcionament amb directoris">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suid" class="md-nav__link">
+    SUID
+  </a>
+  
+    <nav class="md-nav" aria-label="SUID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-dus-de-suid" class="md-nav__link">
+    Exemple d'ús de SUID
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple d'ús de SUID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos-a-seguir" class="md-nav__link">
+    Passos a seguir
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file_sys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../share_src/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de particions i compartició de recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autotask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Còpies de Seguretat i Automatitzacions de Tasques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quotes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quotes per a usuaris i grups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creacio-dun-directori" class="md-nav__link">
+    Creació d'un directori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignacio-de-grup-propietari-del-directori" class="md-nav__link">
+    Assignació de grup propietari del directori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignacio-de-permisos-del-directori" class="md-nav__link">
+    Assignació de permisos del directori
+  </a>
+  
+    <nav class="md-nav" aria-label="Assignació de permisos del directori">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#per-comprovar" class="md-nav__link">
+    Per comprovar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificacions-requerides-donar-als-usuaris-acces-al-grup-propietari" class="md-nav__link">
+    Modificacions requerides: donar als usuaris accès al grup propietari
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esborrat-de-fitxers-i-directoris" class="md-nav__link">
+    Esborrat de fitxers i directoris
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herencia-de-grup" class="md-nav__link">
+    Herència de grup
+  </a>
+  
+    <nav class="md-nav" aria-label="Herència de grup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#com-funciona-chmod-2xxx" class="md-nav__link">
+    Com funciona chmod 2XXX?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beneficis-de-chmod-2770" class="md-nav__link">
+    Beneficis de chmod 2770
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#situacions-recomanades-per-utilitzar-la-configuracio-2770" class="md-nav__link">
+    Situacions recomanades per utilitzar la configuració 2770
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acl" class="md-nav__link">
+    ACL
+  </a>
+  
+    <nav class="md-nav" aria-label="ACL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permisos-actuals-del-directori-carpeta1" class="md-nav__link">
+    Permisos actuals del directori carpeta1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio-de-les-acl" class="md-nav__link">
+    Comprovació de les ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#us-de-les-acl" class="md-nav__link">
+    Ús de les ACL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sticky-bit" class="md-nav__link">
+    Sticky Bit
+  </a>
+  
+    <nav class="md-nav" aria-label="Sticky Bit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-sticky-bit" class="md-nav__link">
+    Què és Sticky Bit?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-funciona" class="md-nav__link">
+    Com funciona?
+  </a>
+  
+    <nav class="md-nav" aria-label="Com funciona?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-practic" class="md-nav__link">
+    Exemple pràctic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#umask" class="md-nav__link">
+    Umask
+  </a>
+  
+    <nav class="md-nav" aria-label="Umask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canviar-umask-temporalment-i-crear-un-fitxer" class="md-nav__link">
+    Canviar Umask temporalment i crear un fitxer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sgid" class="md-nav__link">
+    SGID
+  </a>
+  
+    <nav class="md-nav" aria-label="SGID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionament-amb-fitxers" class="md-nav__link">
+    Funcionament amb fitxers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcionament-amb-directoris" class="md-nav__link">
+    Funcionament amb directoris
+  </a>
+  
+    <nav class="md-nav" aria-label="Funcionament amb directoris">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suid" class="md-nav__link">
+    SUID
+  </a>
+  
+    <nav class="md-nav" aria-label="SUID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-dus-de-suid" class="md-nav__link">
+    Exemple d'ús de SUID
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple d'ús de SUID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passos-a-seguir" class="md-nav__link">
+    Passos a seguir
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="us-dels-permisos-amb-chown-chgrp-i-chmod">Ús dels permisos amb <code>chown</code>, <code>chgrp</code> i <code>chmod</code></h1>
+<p>Per aquesta demostració, hem creat 4 usuaris per exemplificar com aplicar els permisos amb les comandes <code>chown</code>, <code>chgrp</code> i <code>chmod</code>.</p>
+<p><img alt="usrs" src="../Imatges/img/47.png" /></p>
+<p>A més, hem creat un grup anomenat <strong>group1</strong> específicament per a aquesta demostració.</p>
+<p><img alt="grp" src="../Imatges/img/48.png" /></p>
+<h2 id="creacio-dun-directori">Creació d'un directori</h2>
+<p>Comencem creant un nou directoria que anomenarem <strong>carpeta1</strong> per exemplificar:</p>
+<p><code>sudo mkdir nomDirectori</code></p>
+<p><img alt="dir" src="../Imatges/img/49.png" /></p>
+<h2 id="assignacio-de-grup-propietari-del-directori">Assignació de grup propietari del directori</h2>
+<p>Afegim el <strong>group1</strong> com a propietari del directoria <strong>carpeta1</strong> utilitzant <code>chown</code> (<em>CHange OWNer</em> o Canviar Propietari)</p>
+<p><code>sudo chown :nomGrupPropietari nomDirectori</code></p>
+<p><img alt="chown" src="../Imatges/img/50.png" /></p>
+<h2 id="assignacio-de-permisos-del-directori">Assignació de permisos del directori</h2>
+<p>Utilitzarem la comanda <code>chmod</code> (<em>CHange MODe</em> o Canviar Mode) per ajustar els permisos segons requereixi. En aquest cas atorgarem permisos 770. Amb aquest permisos, tant l'usuari propietari com el grup gaudiran de permisos per llegir, escriure i executar. Altres usuari no tindran cap tipus de permís sobre el directori.</p>
+<p><code>sudo chmod XXX nomDirectori/</code></p>
+<p><img alt="chmod" src="../Imatges/img/51.png" /></p>
+<p>Si ens fixem, els permisos <code>drwxrwx---</code> indiquen que:</p>
+<ul>
+<li>
+<p><strong>d</strong>: La primera lletra indica que és un directori.</p>
+</li>
+<li>
+<p><strong>rwx</strong>: El propietari del directori (en aquest cas, root) té permisos de lectura (r), escriptura (w) i execució (x).</p>
+</li>
+<li>
+<p><strong>rwx</strong>: El grup (en aquest cas, group1) també té permisos de lectura (r), escriptura (w) i execució (x).</p>
+</li>
+<li>
+<p><strong><em>---</em></strong>: Altres usuaris no tenen cap permís (no poden llegir, escriure ni executar).</p>
+</li>
+</ul>
+<p>En resum, el directori carpeta1 és accessible i editable pel propietari (<strong>root</strong>, el qual encara no hem modificat i per tant el rol d'usuari propietari queda en mans del creador del directori) i el grup (<strong>group1</strong>), però ningú més pot accedir-hi ni modificar-lo.</p>
+<h3 id="per-comprovar">Per comprovar</h3>
+<p>Intentem accedir al repositori amb algun dels usuaris que hem creat, que no es troben al <strong>group1</strong>.</p>
+<p><img alt="acden" src="../Imatges/img/52.png" /></p>
+<p>Com es pot observar, l'accés és denegat. Això es deu al fet que l'usuari <strong>user1</strong> encara no forma part del grup <strong>group1</strong> i, per tant, no té els permisos necessaris per accedir al directori.</p>
+<h3 id="modificacions-requerides-donar-als-usuaris-acces-al-grup-propietari">Modificacions requerides: donar als usuaris accès al grup propietari</h3>
+<p>Afegim els usuaris dins del <strong>group1</strong>.</p>
+<p><code>sudo usermod -aG nomGrup nomUsuari</code></p>
+<p><img alt="usgrp" src="../Imatges/img/53.png" /></p>
+<p>Comprovem que els usuari estan dins del <strong>group1</strong>.</p>
+<p><code>cat /etc/group | grep nomGrup</code></p>
+<p><img alt="catgrp" src="../Imatges/img/54.png" /></p>
+<p>Entrem un altre cop amb l'usuari amb que havíem intentat accedir anteriorment. Si ens permet accedir, provarem a crear un fitxer i un directori dins de <strong>carpeta1</strong>.</p>
+<p><img alt="usr1ac" src="../Imatges/img/55.png" /></p>
+<p>Com es pot observar, s'han creat correctament i l'usuari i grup propietari d'aquests és <strong>user1</strong>.</p>
+<h2 id="esborrat-de-fitxers-i-directoris">Esborrat de fitxers i directoris</h2>
+<p>Entrem amb l'altre usuari que hem posar al <strong>group1</strong> i intentem esborrar el directori i el fitxer creats per <strong>user1</strong>.</p>
+<p><img alt="usr1ac" src="../Imatges/img/56.png" /></p>
+<p>Com es pot observar, els fitxers han estat esborrats. Aixó no és desitjable, ja que els fitxers eren propietat d'altres usuaris i haurien d'estar protegits.</p>
+<p>Més endavant, explicarem detingudament la <strong>restricció de fitxers</strong> que haguès estat necessaria perquè això no passi.</p>
+<h2 id="herencia-de-grup">Herència de grup</h2>
+<p>El <strong>bit SGID</strong> (<em>Set Group ID</em>) és una característica del sistema de permisos en Linux que assegura que els fitxers i directoris creats dins d’un directori <strong>hereten el grup propietari del directori pare</strong> en lloc del grup predeterminat de l’usuari que els crea.</p>
+<p><img alt="2770" src="../Imatges/img/57.png" /></p>
+<h3 id="com-funciona-chmod-2xxx">Com funciona <code>chmod 2XXX</code>?</h3>
+<p><strong>Bit SGID (2)</strong>:</p>
+<p>Activa l'<strong>herència de grup</strong>, garantint que:</p>
+<ul>
+<li>
+<p>Els fitxers i directoris creats dins d’un directori amb SGID activat heretin automàticament el grup propietari del directori pare.</p>
+</li>
+<li>
+<p>Això assegura que tots els fitxers i directoris dins del directori comparteixin el mateix grup, facilitant el treball col·laboratiu.</p>
+</li>
+</ul>
+<p><strong>Permisos XXX</strong> (770 seguint l'exemple):</p>
+<p>Configura els permisos del directori amb el següent significat:</p>
+<ul>
+<li>
+<p><strong>7 (Propietari)</strong>: Permet llegir, escriure i executar.</p>
+</li>
+<li>
+<p><strong>7 (Grup)</strong>: Permet als membres del grup llegir, escriure i executar.</p>
+</li>
+<li>
+<p><strong>0 (Altres)</strong>: No dona cap permís als usuaris que no són ni el propietari ni membres del grup.</p>
+</li>
+</ul>
+<p>Amb aquests permisos:</p>
+<ul>
+<li>
+<p>Només el propietari i els membres del grup poden accedir al directori o modificar el seu contingut.</p>
+</li>
+<li>
+<p>Altres usuaris queden completament exclosos.</p>
+</li>
+</ul>
+<h3 id="beneficis-de-chmod-2770">Beneficis de <code>chmod 2770</code></h3>
+<p><strong>Seguretat</strong>:</p>
+<ul>
+<li>
+<p>Es limita l’accés al directori exclusivament al propietari i als membres del grup.</p>
+</li>
+<li>
+<p>Els usuaris no autoritzats no poden veure, modificar ni esborrar el contingut del directori.</p>
+</li>
+</ul>
+<p><strong>Col·laboració</strong>:</p>
+<ul>
+<li>L’herència de grup assegura que els fitxers i directoris creats dins del directori comparteixin el mateix grup, facilitant la col·laboració entre els membres.</li>
+</ul>
+<p><strong>Control</strong>:</p>
+<ul>
+<li>Garanteix que només el propietari i els membres del grup tinguin permisos per gestionar els fitxers, mantenint una estructura de permisos clara i coherent.</li>
+</ul>
+<h3 id="situacions-recomanades-per-utilitzar-la-configuracio-2770">Situacions recomanades per utilitzar la configuració <code>2770</code></h3>
+<p>La configuració amb chmod 2770 és especialment útil en entorns on:</p>
+<ul>
+<li>
+<p>Diversos usuaris treballen conjuntament en un projecte. </p>
+</li>
+<li>
+<p>Els fitxers i directoris han de ser accessibles només per als membres del grup. </p>
+</li>
+<li>
+<p>És important mantenir la seguretat i coherència dels permisos en un entorn compartit.</p>
+</li>
+</ul>
+<p>Amb aquesta configuració, es pot assegurar un control adequat dels fitxers i una col·laboració eficaç en projectes d’equip.</p>
+<h2 id="acl">ACL</h2>
+<p>Una <strong>ACL</strong> (<em>Access Control List</em>) és una llista que defineix permisos específics per a usuaris o grups sobre un fitxer o directori en sistemes operatius com Linux. A diferència dels permisos tradicionals de Linux (propietari, grup i altres), les ACL permeten una configuració més granular, com donar permisos diferents a usuaris o grups específics.</p>
+<p><img alt="setfacl" src="../Imatges/img/58.png" /></p>
+<p>D'aquesta manera:</p>
+<ul>
+<li>
+<p><strong>user1</strong>: Pot llegir, escriure i esborrar fitxers, ja que està al grup i no té restriccions addicionals.</p>
+</li>
+<li>
+<p><strong>user2</strong>: Pot llegir i escriure fitxers dins de Carpeta1, però no pot esborrar-los perquè no és el propietari.</p>
+</li>
+</ul>
+<h3 id="permisos-actuals-del-directori-carpeta1">Permisos actuals del directori <code>carpeta1</code></h3>
+<p><strong>Permisos del directori</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Tipus</strong></th>
+<th><strong>Usuari/Grup</strong></th>
+<th><strong>Permisos</strong></th>
+<th><strong>Descripció</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Propietari</strong></td>
+<td><code>root</code></td>
+<td><code>rwx</code></td>
+<td>El propietari té permisos complets.</td>
+</tr>
+<tr>
+<td><strong>Usuari específic</strong></td>
+<td><code>user2</code></td>
+<td><code>rw-</code></td>
+<td>Pot llegir i escriure, però no executar ni esborrar.</td>
+</tr>
+<tr>
+<td><strong>Grup</strong></td>
+<td><code>group1</code></td>
+<td><code>rwx</code></td>
+<td>Els membres del grup tenen permisos complets.</td>
+</tr>
+<tr>
+<td><strong>Mask</strong></td>
+<td><code>-</code></td>
+<td><code>rwx</code></td>
+<td>Defineix el màxim permès pels ACLs.</td>
+</tr>
+<tr>
+<td><strong>Altres</strong></td>
+<td><code>-</code></td>
+<td><code>---</code></td>
+<td>Els altres usuaris no tenen cap accés.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Permisos predeterminats per a nous fixers</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Tipus</strong></th>
+<th><strong>Usuari/Grup</strong></th>
+<th><strong>Permisos</strong></th>
+<th><strong>Descripció</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Propietari</strong></td>
+<td><code>root</code></td>
+<td><code>rwx</code></td>
+<td>Els nous fitxers tindran permisos complets per al propietari.</td>
+</tr>
+<tr>
+<td><strong>Usuari específic</strong></td>
+<td><code>user2</code></td>
+<td><code>rw-</code></td>
+<td>Els nous fitxers tindran permisos de lectura i escriptura, però no d'execució.</td>
+</tr>
+<tr>
+<td><strong>Grup</strong></td>
+<td><code>group1</code></td>
+<td><code>rwx</code></td>
+<td>Els nous fitxers tindran permisos complets per al grup.</td>
+</tr>
+<tr>
+<td><strong>Mask</strong></td>
+<td><code>-</code></td>
+<td><code>rwx</code></td>
+<td>Defineix el màxim permès pels ACLs predeterminats.</td>
+</tr>
+<tr>
+<td><strong>Altres</strong></td>
+<td><code>-</code></td>
+<td><code>---</code></td>
+<td>Els altres usuaris no tindran accés als nous fitxers.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comprovacio-de-les-acl">Comprovació de les ACL</h3>
+<p>Per verificar si s'ha aplicat correctament la configuració de la ACL, utilitzem la següent comanda:</p>
+<p><code>getfacl nomDirectori/</code></p>
+<p>La sortida hauria de mostrar els permisos configurats actualment per al directori.</p>
+<p><img alt="getfacl" src="../Imatges/img/59.png" /></p>
+<h3 id="us-de-les-acl">Ús de les ACL</h3>
+<p><strong>Pas 1: Crear un fitxer amb <code>user1</code>.</strong></p>
+<p>Entrem amb l'usuari <strong>user1</strong> i creem un directori o un fitxer dins de <strong>carpeta1</strong>.</p>
+<p><img alt="u1dir" src="../Imatges/img/60.png" /></p>
+<p><strong>Pas 2: Intentem accedir amb <code>user2</code>.</strong></p>
+<p>Ara entrem amb l'usuari <strong>user2</strong> i intentem accedir a <strong>carpeta1</strong> o llegir els fitxers.</p>
+<ul>
+<li><em>Resultat esperat</em>: No podem accedir al directori ni llegir els fitxers. Només podem veure que existeix la carpeta, però no tenim informació sobre els permisos ni el seu contingut.</li>
+</ul>
+<p><img alt="u2fail" src="../Imatges/img/61.png" /></p>
+<p><strong>Pas 3: Afegim permisos per a <code>user2</code> amb ACL.</strong></p>
+<p>Per permetre que <strong>user2</strong> pugui accedir a la carpeta, llegir, modificar i executar fitxers, afegim permisos <strong>rwx</strong> (<em>Reading, Writing, eXecution</em>) dins de l'ACL.</p>
+<p><img alt="rwx" src="../Imatges/img/62.png" /></p>
+<p><strong>Compte!</strong> Amb aquesta configuració, el <strong>user2</strong> pot llegir, escriure i també esborrar els fitxers dins de <strong>carpeta1</strong>. Per evitar que el <strong>user2</strong> pugui esborrar els fitxers d'altres usuaris, cal activar el <strong>Sticky Bit</strong>, com veurem a continuació.</p>
+<h2 id="sticky-bit">Sticky Bit</h2>
+<h3 id="que-es-sticky-bit">Què és Sticky Bit?</h3>
+<p><strong>Sticky Bit</strong> és una característica que s'utilitza en sistemes Linux per protegir els fitxers en directoris compartits. Quan s'activa, només el <strong>propietari del fitxer</strong> o un <strong>administrador</strong> pot esborrar-lo, encara que altres usuaris tinguin permisos d'escriptura al directori.</p>
+<h3 id="com-funciona">Com funciona?</h3>
+<p>En un directori compartit, com ara <code>/carpeta1</code>: </p>
+<ul>
+<li>
+<p>Els usuaris poden crear i editar fitxers lliurement. </p>
+</li>
+<li>
+<p>Amb el Sticky Bit, un usuari no pot esborrar els fitxers d'altres usuaris, però sí els seus propis.</p>
+</li>
+</ul>
+<p>Per evitar que <strong>user2</strong> o qualsevol altre usuari pugui esborrar fitxers que no són seus, afegim el <strong>Sticky Bit</strong> al directori. Això assegura que només el propietari del fitxer o un administrador pot esborrar-lo.</p>
+<p><img alt="stbit" src="../Imatges/img/63.png" /></p>
+<h4 id="exemple-practic">Exemple pràctic</h4>
+<p>Entrem amb el <strong>user1</strong>, creem un directori i un fitxer. Posteriorment, entrem amb el <strong>user2</strong> i intentem esborrar els fitxers de l'usuari <strong>user1</strong>, però no es poden esborrar per falta de permisos. Tot i això, podem crear fitxers propis dins del directori.</p>
+<p><img alt="u1tch" src="../Imatges/img/64.png" /></p>
+<p><img alt="u2tch" src="../Imatges/img/65.png" /></p>
+<p>Amb aquesta configuració:</p>
+<ul>
+<li><strong>user1</strong> pot crear fitxers i directoris, i només ell pot esborrar els seus fitxers. </li>
+<li><strong>user2</strong> pot accedir, llegir i escriure fitxers dins de <code>/carpeta1</code>, però no pot esborrar els fitxers d'altres usuaris.</li>
+</ul>
+<h2 id="umask">Umask</h2>
+<p><strong>Umask</strong> és una configuració en sistemes Linux que controla els permisos que tindran els fitxers i directoris nous quan es creïn. En altres paraules, determina qui podrà accedir o modificar aquests fitxers o directoris per defecte.</p>
+<p><strong>Com funciona?</strong></p>
+<ul>
+<li>
+<p>Quan es crea un fitxer o directori nou, el sistema li assigna uns permisos predeterminats.</p>
+</li>
+<li>
+<p>Umask resta alguns permisos d'aquests valors predeterminats per garantir la seguretat i el control d'accés.</p>
+</li>
+</ul>
+<p><strong>Valors predeterminats</strong>:</p>
+<ul>
+<li>
+<p><strong>Fitxers</strong>: Els permisos inicials són 666 (lectura i escriptura per a tothom, però sense execució).</p>
+</li>
+<li>
+<p><strong>Directoris</strong>: Els permisos inicials són 777 (lectura, escriptura i execució per a tothom).</p>
+</li>
+</ul>
+<p><strong>Per què és important?</strong></p>
+<p>Umask ajuda a controlar la seguretat i la col·laboració en un sistema: </p>
+<ul>
+<li>
+<p><strong>Seguretat</strong>: Evita que altres usuaris tinguin accés complet als teus fitxers per defecte. </p>
+</li>
+<li>
+<p><strong>Col·laboració</strong>: Permet ajustar els permisos perquè els membres del teu grup puguin treballar amb els teus fitxers si cal.</p>
+</li>
+</ul>
+<h3 id="canviar-umask-temporalment-i-crear-un-fitxer">Canviar <code>Umask</code> temporalment i crear un fitxer</h3>
+<p>Primerament comprovem el valor actual de la <strong>umask</strong></p>
+<p><img alt="u2mask" src="../Imatges/img/66.png" /></p>
+<p>Amb això podem concloure que:</p>
+<ul>
+<li>
+<p>L'<strong>user2</strong> té configurada la <strong>umask</strong> com <code>0002</code>, permetent que els fitxers nous siguin accessibles per al grup.</p>
+</li>
+<li>
+<p><strong>user2</strong> crea un fitxer de text anomenat <code>umask.txt</code>.</p>
+</li>
+</ul>
+<p><strong>Permisos del fitxer:</strong></p>
+<p>En fer <code>ls -l</code>, els permisos són <code>-rw-rw----</code>, indicant que:</p>
+<ul>
+<li>
+<p>El propietari i el grup poden llegir i escriure.</p>
+</li>
+<li>
+<p>Altres no tenen cap accés.</p>
+</li>
+</ul>
+<p><strong>Assignació d'una umask diferent</strong></p>
+<p>Assignem una <strong>umask</strong> més restrictiva i creem un fitxer anomenat <code>hello</code>.</p>
+<p><code>umask 0077</code></p>
+<p><img alt="um0077" src="../Imatges/img/67.png" /></p>
+<p><strong>Comprovació dels permisos</strong>:</p>
+<p>En fer <code>ls -l</code>, els permisos són <code>-rw-------</code>, indicant que:</p>
+<ul>
+<li>
+<p>Només el propietari pot llegir i escriure.</p>
+</li>
+<li>
+<p>El grup i altres no tenen cap accés.</p>
+</li>
+</ul>
+<p><strong>Explicació</strong>:</p>
+<p>Amb la umask configurada com <code>0077</code>:</p>
+<ul>
+<li>
+<p>Els fitxers són completament privats.</p>
+</li>
+<li>
+<p>Aquesta configuració és útil per garantir la seguretat en fitxers sensibles.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>NOTA!</strong> La configuració de la <strong>umask</strong> no s'aplicarà si el directori on es creen els fitxers té permisos configurats amb <strong>ACLs</strong>. En aquest cas, els permisos dels fitxers i directoris nous heretaran les configuracions de l'<strong>ACL</strong>, independentment del valor de la <strong>umask</strong>.</p>
+</blockquote>
+<p><img alt="umsku2" src="../Imatges/img/68.png" /></p>
+<h2 id="sgid">SGID</h2>
+<p><strong>SGID</strong> (<em>Set Group ID</em>) és un permís especial en sistemes Unix/Linux que permet que un fitxer o directori hereti el grup propietari de l'arxiu o carpeta en lloc del grup de l'usuari que el va crear.</p>
+<h3 id="funcionament-amb-fitxers">Funcionament amb fitxers</h3>
+<p>Quan un programa amb <strong>SGID</strong> s'executa, funciona amb els permisos del grup propietari del fitxer. Això és útil per assegurar que els processos heretin permisos del grup correcte.</p>
+<p><strong>Configuració de SGID en un fitxer</strong>:</p>
+<p><code>chmod g+s fitxer</code></p>
+<h3 id="funcionament-amb-directoris">Funcionament amb directoris</h3>
+<p>Quan <strong>SGID</strong> està activat en un directori, qualsevol fitxer creat dins d'aquest heretarà el grup propietari del directori en lloc del grup de l'usuari que el va crear. Això facilita la col·laboració en grups.</p>
+<p><strong>Configuració de SGID en un directori</strong>:</p>
+<p><code>chmod g+s directori</code></p>
+<h4 id="notes">Notes</h4>
+<p>L'ús de <strong>SGID</strong> en directoris és especialment útil per a projectes col·laboratius, on diversos usuaris necessiten compartir fitxers dins d'un mateix grup.</p>
+<p>Per eliminar el permís <strong>SGID</strong> d'un fitxer o directori:</p>
+<p><code>chmod g-s fitxer_o_directori</code></p>
+<h2 id="suid">SUID</h2>
+<p><strong>SUID</strong> (<em>Set User ID</em>) és un permís especial en sistemes Unix/Linux que permet que un programa s'executi amb els privilegis del propietari del fitxer, en lloc de l'usuari que l'executa. Això és útil per a certs programes que necessiten permisos elevats per funcionar correctament, com ara aquells que accedeixen a recursos restringits del sistema.</p>
+<h3 id="exemple-dus-de-suid">Exemple d'ús de SUID</h3>
+<p>En aquest exemple, veurem com configurar <strong>SUID</strong> per a un programa escrit en C, permetent a un usuari sense privilegis accedir al directori <code>/root</code>.</p>
+<h4 id="passos-a-seguir">Passos a seguir</h4>
+<p><strong>Posar-se com a root</strong></p>
+<p>Primer, assegura't d'executar tots els passos següents com a usuari <strong>root</strong>:</p>
+<p><code>sudo su</code></p>
+<p><strong>Crear l'arxiu script.c</strong></p>
+<p>Crea un fitxer anomenat <code>script.c</code> i afegeix el següent codi:</p>
+<p><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;dirent.h&gt;</code><br />
+<code></code>
+<code>int main() {</code><br />
+<code>struct dirent *entry;</code><br />
+<code>DIR *dp = opendir("/root");</code><br />
+<code>if (dp == NULL) {</code><br />
+<code>perror("No s'ha pogut obrir /root");</code><br />
+<code>return 1;</code><br />
+<code>}</code><br />
+<code>printf("Contingut de /root:\n");</code><br />
+<code>while ((entry = readdir(dp))) {</code><br />
+<code>printf("%s\n", entry-&gt;d_name);</code><br />
+<code>}</code><br />
+<code>closedir(dp);</code><br />
+<code>return 0;</code><br />
+<code>}</code></p>
+<p>Aquest codi intenta obrir el directori <code>/root</code> i llistar el seu contingut.</p>
+<p><strong>Compilar el codi</strong></p>
+<p>Compila el codi per generar un executable (si no has intal·lat <strong>GCC</strong> absans fes un <code>sudo apt install gcc</code>):</p>
+<p><code>sudo gcc script.c -o script</code></p>
+<p><strong>Assignar permisos d'execució i SUID</strong></p>
+<p>Ara, dona permisos d'execució al programa i configura SUID:</p>
+<p><code>sudo chmod +x script</code><br />
+<code>sudo chmod u+s script</code>  </p>
+<p><img alt="scpt" src="../Imatges/img/69.png" /></p>
+<p><strong>Provar amb un usuari sense privilegis</strong></p>
+<p>Connecta't amb un usuari que no formi part del grup de <em>sudoers</em>, per exemple, <strong>user1</strong>.</p>
+<p>Executa l'script:</p>
+<p><code>./script</code></p>
+<p><img alt="scptu1" src="../Imatges/img/70.png" /></p>
+<p>Si s'ha configurat correctament, l'usuari <strong>user1</strong> podrà veure el contingut del directori <code>/root</code>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3 @@
+# Còpies de Seguretat i Automatitzacions de Tasques
+
+Properament...
