@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 site_name: Pol Casanova
 theme: 
   name: material
@@ -8,3 +9,33 @@ nav:
     - "ubuntu.md"
     - "nat.md"
     - "llicencies.md"
+=======
+site_name: Implantació de Sistemes Operatius - POL CASANOVA PUIG
+
+nav:
+- Introducció: index.md
+- Sprint1:
+    - Instal·lació del sistema operatiu: install.md
+    - Particions: partitions.md
+    - Llicenciament: llicence.md
+    - Punts de restauració: rest.md
+    - Configuració bàsica de xarxa: net.md
+    - Instal·lació bàsica de programes: softinst.md
+    - Gestors d'arrencada: gest.md
+    - Recuperació de gestors d'arrencada: reboot.md
+    - Clonezilla: cz.md
+- Sprint2:
+    - Fitxers importants: imp_files.md
+    - Gestió d'usuaris: user_gest.md
+    - Gestió de processos: proc_gest.md
+    - Permisos especials i ACLs: special_perm.md
+    - Aplicació de permisos especials i ACLs: sp_use.md
+    - Sistema de fitxers: file_sys.md
+    - Gestió de particions i compartició de recursos: share_src.md
+    - Còpies de Seguretat i Automatitzacions de Tasques: autotask.md
+    - Quotes per a usuaris i grups: quotes.md
+
+theme:
+    name: material
+
+>>>>>>> 2f904bb7 (FLLPSH)
