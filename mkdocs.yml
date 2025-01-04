@@ -1,40 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-site_name: Implantació de Sistemes Operatius - POL CASANOVA PUIG
-nav:
-- Introducció: index.md
-- Sprint1: Sprint1.md
-theme: material
-   
-
-=======
-site_name: My Docs
-theme: 
-name: material
->>>>>>> b18df821 (text)
-=======
-=======
->>>>>>> a2afcfa9 (FLLPSH)
-site_name: Pol Casanova
-theme: 
-  name: material
-
-nav: 
-  - Sprint 1:
-    - "index.md"
-    - "ubuntu.md"
-    - "nat.md"
-    - "llicencies.md"
-<<<<<<< HEAD
->>>>>>> e9126340 (Modificacions Ubuntu)
-=======
-=======
 site_name: Implantació de Sistemes Operatius - POL CASANOVA PUIG
 
 nav:
 - Introducció: index.md
 - Sprint1:
+    - Introducció al Sprint 1: Sprint1.md
     - Instal·lació del sistema operatiu: install.md
     - Particions: partitions.md
     - Llicenciament: llicence.md
@@ -45,6 +14,7 @@ nav:
     - Recuperació de gestors d'arrencada: reboot.md
     - Clonezilla: cz.md
 - Sprint2:
+    - Introducció al Sprint 2: spr2.md
     - Fitxers importants: imp_files.md
     - Gestió d'usuaris: user_gest.md
     - Gestió de processos: proc_gest.md
@@ -58,5 +28,3 @@ nav:
 theme:
     name: material
 
->>>>>>> 2f904bb7 (FLLPSH)
->>>>>>> a2afcfa9 (FLLPSH)
