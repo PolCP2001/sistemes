@@ -22,7 +22,8 @@ nav:
     - Aplicació de permisos especials i ACLs: sp_use.md
     - Sistema de fitxers: file_sys.md
     - Gestió de particions i compartició de recursos: share_src.md
-    - Còpies de Seguretat i Automatitzacions de Tasques: autotask.md
+    - Automatitzacions de Tasques: autotask.md
+    - Còpies de Seguretat: sec_copy.md
     - Quotes per a usuaris i grups: quotes.md
 
 theme:
