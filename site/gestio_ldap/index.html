@@ -1,0 +1,1330 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../client_ldap/">
+      
+      
+        <link rel="next" href="../smb_nfs/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Gestió del domini LDAP - Implantació de Sistemes Operatius - POL CASANOVA PUIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gestio-del-domini-ldap" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-header__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantació de Sistemes Operatius - POL CASANOVA PUIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Gestió del domini LDAP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-nav__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Implantació de Sistemes Operatius - POL CASANOVA PUIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sprint1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció al Sprint 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació del sistema operatiu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Particions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llicence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llicenciament
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Punts de restauració
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració bàsica de xarxa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../softinst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació bàsica de programes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recuperació de gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonezilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spr2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció al Sprint 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imp_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fitxers importants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió d'usuaris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proc_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de processos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special_perm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sp_use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aplicació de permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file_sys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../share_src/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de particions i compartició de recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autotask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automatitzacions de Tasques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sec_copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Còpies de Seguretat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quotes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quotes per a usuaris i grups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació domini LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració del client LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Gestió del domini LDAP
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Gestió del domini LDAP
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ldapadd" class="md-nav__link">
+    ldapadd
+  </a>
+  
+    <nav class="md-nav" aria-label="ldapadd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#afegir-un-nou-usuari" class="md-nav__link">
+    Afegir un nou usuari
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldapsearch" class="md-nav__link">
+    ldapsearch
+  </a>
+  
+    <nav class="md-nav" aria-label="ldapsearch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio-de-les-dades-al-domini" class="md-nav__link">
+    Comprovació de les dades al domini
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio-de-les-unitats-organitzatives-uos" class="md-nav__link">
+    Comprovació de les Unitats Organitzatives (UOs)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio-de-grups" class="md-nav__link">
+    Comprovació de Grups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-fer-una-cerca-mes-especifica" class="md-nav__link">
+    Per fer una cerca més específica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacio-duna-nova-uo" class="md-nav__link">
+    Creació d'una nova UO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldapdelete" class="md-nav__link">
+    ldapdelete
+  </a>
+  
+    <nav class="md-nav" aria-label="ldapdelete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esborrar-atributs-dun-usuari-amb-ldapmodify" class="md-nav__link">
+    Esborrar atributs d’un usuari amb ldapmodify
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esborrar-una-entrada-amb-ldapdelete" class="md-nav__link">
+    Esborrar una entrada amb ldapdelete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esborrar-una-entrada-amb-un-fitxer-ldif-i-ldapmodify" class="md-nav__link">
+    Esborrar una entrada amb un fitxer .ldif i ldapmodify
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldapmodify" class="md-nav__link">
+    ldapmodify
+  </a>
+  
+    <nav class="md-nav" aria-label="ldapmodify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificacio-final" class="md-nav__link">
+    Verificació final
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smb_nfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perfils mòbils i Compartició de recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ldapadd" class="md-nav__link">
+    ldapadd
+  </a>
+  
+    <nav class="md-nav" aria-label="ldapadd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#afegir-un-nou-usuari" class="md-nav__link">
+    Afegir un nou usuari
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldapsearch" class="md-nav__link">
+    ldapsearch
+  </a>
+  
+    <nav class="md-nav" aria-label="ldapsearch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio-de-les-dades-al-domini" class="md-nav__link">
+    Comprovació de les dades al domini
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio-de-les-unitats-organitzatives-uos" class="md-nav__link">
+    Comprovació de les Unitats Organitzatives (UOs)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprovacio-de-grups" class="md-nav__link">
+    Comprovació de Grups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-fer-una-cerca-mes-especifica" class="md-nav__link">
+    Per fer una cerca més específica
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacio-duna-nova-uo" class="md-nav__link">
+    Creació d'una nova UO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldapdelete" class="md-nav__link">
+    ldapdelete
+  </a>
+  
+    <nav class="md-nav" aria-label="ldapdelete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esborrar-atributs-dun-usuari-amb-ldapmodify" class="md-nav__link">
+    Esborrar atributs d’un usuari amb ldapmodify
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esborrar-una-entrada-amb-ldapdelete" class="md-nav__link">
+    Esborrar una entrada amb ldapdelete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esborrar-una-entrada-amb-un-fitxer-ldif-i-ldapmodify" class="md-nav__link">
+    Esborrar una entrada amb un fitxer .ldif i ldapmodify
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldapmodify" class="md-nav__link">
+    ldapmodify
+  </a>
+  
+    <nav class="md-nav" aria-label="ldapmodify">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificacio-final" class="md-nav__link">
+    Verificació final
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="gestio-del-domini-ldap">Gestió del domini LDAP</h1>
+<p>En aquest apartat farem una breu explicació i introducció a les comandes i com podem gestionar el nostre servidor LDAP: add, delete i modify.</p>
+<p>Ja tenim el nostre LDAP configurat com hem fet en l’apartat anterior. Fem un slapcat per comprovar.</p>
+<p><img alt="170" src="../Imatges/img/170.png" /></p>
+<h2 id="ldapadd">ldapadd</h2>
+<p>La comanda ldapadd serveix per afegir els fitxers al domini LDAP. Podem fer-ho utilitzant l'ordre següent per afegir un fitxer .ldif que contingui les dades necessàries:</p>
+<p><code>ldapadd -c -x -D "cn=admin,dc=pol,dc=cat" -W -f gestiodades.ldif</code></p>
+<p><img alt="171" src="../Imatges/img/171.png" /></p>
+<h3 id="afegir-un-nou-usuari">Afegir un nou usuari</h3>
+<p>Per afegir un nou usuari, creem un fitxer amb extensió .ldif que contingui el següent codi:</p>
+<p><img alt="172" src="../Imatges/img/172.png" /></p>
+<p>Un cop preparat, executem la comanda ldapadd per afegir l'usuari al domini.</p>
+<p><strong>Execució de la comanda</strong></p>
+<p>Utilitzem la següent comanda per afegir l’usuari:</p>
+<p><code>ldapadd -x -D "cn=admin,dc=pol,dc=cat" -W -f addnewuser.ldif</code></p>
+<p>Podem veure que l'usuari s'ha afegit correctament:</p>
+<p><img alt="173" src="../Imatges/img/173.png" /></p>
+<p><strong>Comprovació</strong></p>
+<p>Finalment, realitzem una verificació amb la comanda ldapsearch per assegurar-nos que l'usuari s'ha creat correctament:</p>
+<p><code>ldapsearch -xLLL -b "uid=vdomin,ou=People,dc=pol,dc=cat"</code></p>
+<p>Resultat de la comprovació:</p>
+<p><img alt="174" src="../Imatges/img/174.png" /></p>
+<h2 id="ldapsearch">ldapsearch</h2>
+<p>El comandament ldapsearch és una eina molt útil per consultar informació dins d’un domini LDAP. Amb aquesta eina podem buscar entrades, comprovar atributs, filtrar resultats i molt més. A continuació, veurem algunes de les seves funcionalitats bàsiques.</p>
+<h3 id="comprovacio-de-les-dades-al-domini">Comprovació de les dades al domini</h3>
+<p>Ara que hem afegit el fitxer .ldif, comprovem que totes les dades estan correctament al domini. Això es pot fer amb la comanda ldapsearch:</p>
+<p><code>ldapsearch -xLLL -b "dc=pol,dc=cat" dn | wc -l</code></p>
+<blockquote>
+<p><strong>Nota</strong>: Afegim wc -l per fer un recompte de línies, ja que no volem que aparegui tot el text a la sortida.</p>
+</blockquote>
+<p><img alt="175" src="../Imatges/img/175.png" /></p>
+<h3 id="comprovacio-de-les-unitats-organitzatives-uos">Comprovació de les Unitats Organitzatives (UOs)</h3>
+<p>També podem fer una cerca per trobar totes les Unitats Organitzatives (UOs) del domini utilitzant la comanda següent:</p>
+<p><code>ldapsearch -xLLL -b "dc=pol,dc=cat" objectClass=organizationalUnit</code></p>
+<p><img alt="176" src="../Imatges/img/176.png" /></p>
+<h3 id="comprovacio-de-grups">Comprovació de Grups</h3>
+<p>Si volem saber quants grups hi ha dintre de la uo Groups, podem executar aquesta comanda.</p>
+<p><code>ldapsearch -xLLL -b "dc=pol,dc=cat" "(ou=Groups)" dn</code></p>
+<p><img alt="177" src="../Imatges/img/177.png" /></p>
+<h3 id="per-fer-una-cerca-mes-especifica">Per fer una cerca més específica</h3>
+<p>L’usuari kvaughan, en quants grups el trobem com a uniqueMember i quins són?</p>
+<p>Per fer això, podem executar la següent comanda per llistar els grups on l’usuari kvaughan és membre únic:</p>
+<p><code>ldapsearch -xLLL -b "dc=pol,dc=cat" "(uniqueMember=uid=kvaughan,ou=People,dc=pol,dc=cat)" dn</code></p>
+<p>Per comprovar quants grups hi ha en total, podem afegir el wc -l (word count list) per fer el recompte:</p>
+<p><code>ldapsearch -xLLL -b "dc=pol,dc=cat" "(uniqueMember=uid=kvaughan,ou=People,dc=pol,dc=cat)" dn | wc -l</code></p>
+<p><img alt="178" src="../Imatges/img/178.png" /></p>
+<p><strong>Cerca específica: Usuaris de People amb uid començant per k i part de Human Resources</strong></p>
+<p>Cerca usuaris que compleixen aquestes condicions:</p>
+<ul>
+<li>
+<p><code>uid</code> comença per k.</p>
+</li>
+<li>
+<p>Atribut <code>ou=Human Resources</code>.</p>
+</li>
+</ul>
+<p><code>ldapsearch -xLLL -b "ou=People,dc=pol,dc=cat" "(&amp;(uid=k*)(ou=Human Resources))" dn</code></p>
+<p><img alt="179" src="../Imatges/img/179.png" /></p>
+<h3 id="creacio-duna-nova-uo">Creació d'una nova UO</h3>
+<p>Per crear una nova Unitat Organitzativa (UO) anomenada "asix", necessitem preparar un fitxer .ldif amb la configuració de la nova UO. Un exemple del contingut del fitxer seria el següent:</p>
+<p><code>dn: ou=asix,dc=pol,dc=cat</code>
+<code>objectClass: top</code>
+<code>objectClass: organizationalUnit</code>
+<code>ou: asix</code></p>
+<p>Després, utilitzarem la comanda ldapadd per afegir la UO al domini:</p>
+<p><code>ldapadd -x -D "cn=admin,dc=pol,dc=cat" -W -f asix.ldif</code></p>
+<p><img alt="180" src="../Imatges/img/180.png" /></p>
+<p>Un cop completada l’operació, la UO "asix" es crearà dins del domini. Per verificar-ho, podem utilitzar la següent comanda:</p>
+<p><code>ldapsearch -xLLL -b "dc=pol,dc=cat" objectClass=organizationalUnit uo</code></p>
+<p><img alt="181" src="../Imatges/img/181.png" /></p>
+<p>Amb això, assegurem que la nova UO ha estat afegida correctament.</p>
+<h2 id="ldapdelete">ldapdelete</h2>
+<p>Hi ha dues maneres de fer esborrats en un domini LDAP: utilitzar la comanda ldapdelete o utilitzar un fitxer .ldif amb ldapmodify.</p>
+<h3 id="esborrar-atributs-dun-usuari-amb-ldapmodify">Esborrar atributs d’un usuari amb ldapmodify</h3>
+<p>Per esborrar atributs d’un usuari, primer necessitem crear un fitxer .ldif amb les modificacions que volem aplicar. En aquest cas, esborrarem l’atribut roomNumber de l’usuari ejohnson.</p>
+<p><img alt="182" src="../Imatges/img/182.png" /></p>
+<p>Després, executem la comanda ldapmodify per aplicar els canvis:</p>
+<p><code>ldapmodify -x -D "cn=admin,dc=pol,dc=cat" -W -f modify.ldif</code></p>
+<p><img alt="183" src="../Imatges/img/183.png" /></p>
+<p>Finalment, fem un ldapsearch per comprovar que l’atribut roomNumber s’ha esborrat correctament:</p>
+<p><code>ldapsearch -xLLL -b "uid=ejohnson,ou=People,dc=pol,dc=cat"</code></p>
+<p><img alt="181" src="../Imatges/img/184.png" /></p>
+<h3 id="esborrar-una-entrada-amb-ldapdelete">Esborrar una entrada amb ldapdelete</h3>
+<p>Podem utilitzar la comanda ldapdelete per eliminar directament una entrada del domini. Per exemple, per esborrar una unitat organitzativa anomenada "prova":</p>
+<p><code>ldapdelete -x -D "cn=admin,dc=vitaliy,dc=com" -W "ou=prova,dc=pol,dc=cat"</code></p>
+<h3 id="esborrar-una-entrada-amb-un-fitxer-ldif-i-ldapmodify">Esborrar una entrada amb un fitxer .ldif i ldapmodify</h3>
+<p>També podem crear un fitxer .ldif amb les instruccions d'esborrat. Exemple del contingut del fitxer .ldif:</p>
+<p><code>dn: ou=prova,dc=pol,dc=cat</code> 
+<code>changetype: delete</code></p>
+<p>Després, executem la comanda següent per aplicar l'esborrat:</p>
+<p><code>ldapmodify -x -D "cn=admin,dc=pol,dc=cat" -W -f dades.ldif</code></p>
+<h2 id="ldapmodify">ldapmodify</h2>
+<p><strong>Modificar dades de l'usuari ejohnson</strong></p>
+<p>Anem a modificar algunes dades de ejohnson, concretament el número de telèfon i el correu electrònic.</p>
+<p><img alt="181" src="../Imatges/img/185.png" /></p>
+<p>Executem la comanda del ldapmodify per aplicar els canvis i, posteriorment, fem un ldapsearch per verificar els canvis cercant únicament pel telèfon i el correu electrònic.</p>
+<p><img alt="181" src="../Imatges/img/186.png" /></p>
+<p>Canviar usuaris de grup amb ldapmodify
+Anem a canviar 3 usuaris del seu grup principal i els anem a posar dins del grup de asix.</p>
+<p><img alt="181" src="../Imatges/img/187.png" /></p>
+<p>Crearem el fitxer de modificació i posteriorment l'executarem.</p>
+<p><img alt="181" src="../Imatges/img/188.png" /></p>
+<p>Executem la comanda per comprovar si realment s'han canviat d'OU:</p>
+<p><code>ldapsearch -xLLL -b "ou=asix,dc=pol,dc=cat"</code></p>
+<p><img alt="181" src="../Imatges/img/189.png" /></p>
+<p><strong>Modificar diversos paràmetres</strong></p>
+<p>També podem modificar diversos paràmetres d'un mateix usuari. En aquest cas, realitzarem múltiples accions sobre l'usuari vdomin. Això es pot fer mitjançant dos fitxers .ldif separats o executant dues vegades el fitxer modify.ldif amb informació diferent.</p>
+<p>Les accions que realitzarem són les següents:</p>
+<ul>
+<li>
+<p>Modificació: Canviarem el número de telèfon.</p>
+</li>
+<li>
+<p>Afegir: Afegeix un correu electrònic inventat i la ciutat de residència.</p>
+</li>
+<li>
+<p>Moure: Canviarem la UO de People a asix.</p>
+</li>
+</ul>
+<p><strong>Fitxer per editar les dades</strong></p>
+<p><img alt="181" src="../Imatges/img/190.png" /></p>
+<p>Resultat de moure l'usuari a la UO asix</p>
+<p><img alt="181" src="../Imatges/img/191.png" /></p>
+<p><strong>Execució dels fitxers</strong></p>
+<p>Executem els fitxers .ldif i comprovem que els canvis s'han aplicat correctament:</p>
+<p><img alt="181" src="../Imatges/img/192.png" /></p>
+<h4 id="verificacio-final">Verificació final</h4>
+<p>Per assegurar-nos que l'usuari s'ha mogut correctament a asix i que els atributs s'han modificat, fem servir la comanda següent:</p>
+<p><code>ldapsearch -xLLL -b "uid=vdomin,ou=asix,dc=pol,dc=cat"</code></p>
+<p><img alt="181" src="../Imatges/img/193.png" /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

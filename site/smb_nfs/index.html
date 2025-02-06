@@ -1,0 +1,1273 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../gestio_ldap/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Perfils mòbils i Compartició de recursos - Implantació de Sistemes Operatius - POL CASANOVA PUIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#perfils-mobils-i-comparticio-de-recursos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-header__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantació de Sistemes Operatius - POL CASANOVA PUIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Perfils mòbils i Compartició de recursos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-nav__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Implantació de Sistemes Operatius - POL CASANOVA PUIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sprint1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció al Sprint 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació del sistema operatiu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Particions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llicence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llicenciament
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Punts de restauració
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració bàsica de xarxa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../softinst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació bàsica de programes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recuperació de gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonezilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spr2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció al Sprint 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imp_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fitxers importants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió d'usuaris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proc_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de processos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special_perm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sp_use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aplicació de permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file_sys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../share_src/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de particions i compartició de recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autotask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automatitzacions de Tasques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sec_copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Còpies de Seguretat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quotes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quotes per a usuaris i grups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació domini LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració del client LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gestio_ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió del domini LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Perfils mòbils i Compartició de recursos
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Perfils mòbils i Compartició de recursos
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#samba-vs-nfs" class="md-nav__link">
+    Samba vs. NFS
+  </a>
+  
+    <nav class="md-nav" aria-label="Samba vs. NFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compartir-un-directori" class="md-nav__link">
+    Compartir un Directori
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-windows" class="md-nav__link">
+    Client Windows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-linux" class="md-nav__link">
+    Client Linux
+  </a>
+  
+    <nav class="md-nav" aria-label="Client Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-del-client-nfs" class="md-nav__link">
+    Instal·lació del client NFS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perfils-mobils" class="md-nav__link">
+    Perfils Mòbils
+  </a>
+  
+    <nav class="md-nav" aria-label="Perfils Mòbils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-de-perfils-mobils-amb-ldap" class="md-nav__link">
+    Configuració de Perfils Mòbils amb LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-del-client" class="md-nav__link">
+    Configuració del Client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#samba-vs-nfs" class="md-nav__link">
+    Samba vs. NFS
+  </a>
+  
+    <nav class="md-nav" aria-label="Samba vs. NFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compartir-un-directori" class="md-nav__link">
+    Compartir un Directori
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-windows" class="md-nav__link">
+    Client Windows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-linux" class="md-nav__link">
+    Client Linux
+  </a>
+  
+    <nav class="md-nav" aria-label="Client Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-del-client-nfs" class="md-nav__link">
+    Instal·lació del client NFS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perfils-mobils" class="md-nav__link">
+    Perfils Mòbils
+  </a>
+  
+    <nav class="md-nav" aria-label="Perfils Mòbils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-de-perfils-mobils-amb-ldap" class="md-nav__link">
+    Configuració de Perfils Mòbils amb LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-del-client" class="md-nav__link">
+    Configuració del Client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="perfils-mobils-i-comparticio-de-recursos">Perfils mòbils i Compartició de Recursos</h1>
+<h2 id="samba-vs-nfs">Samba vs. NFS</h2>
+<p>En aquest apartat explorarem la compartició de recursos mitjançant NFS i Samba, així com la creació i configuració d'usuaris amb perfils mòbils. Es destacaran les diferències principals entre ambdós sistemes i es descriurà l'autenticació a nivell de host, a més de la configuració bàsica tant del servidor com del client per assegurar una integració eficient.</p>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Samba</th>
+<th>NFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protocol</td>
+<td>SMB/CIFS</td>
+<td>NFS</td>
+</tr>
+<tr>
+<td>Entorn principal</td>
+<td>Compartició de fitxers en entorns Windows (i també Linux, etc.)</td>
+<td>Compartició de fitxers en entorns Linux/Unix</td>
+</tr>
+<tr>
+<td>Autenticació</td>
+<td>Basada en usuaris i integrada amb dominis Windows (com Active Directory)</td>
+<td>Basada en permisos i autenticació a nivell de host (permisos Unix)</td>
+</tr>
+<tr>
+<td>Compatibilitat</td>
+<td>Compatible amb Windows, Linux i altres sistemes</td>
+<td>Principalment dissenyat per a Linux/Unix; Windows pot actuar com a client NFS amb configuració addicional</td>
+</tr>
+<tr>
+<td>Casos d'ús</td>
+<td>Ideal en entorns heterogenis on interactuen Windows i Linux</td>
+<td>Recomanat per a xarxes d'entorns Unix/Linux, amb alt rendiment en transferències de fitxers</td>
+</tr>
+<tr>
+<td>## Instal·lació del servei NFS en Linux</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>En aquest apartat instal·larem el servei NFS en el nostre servidor, que ja té el LDAP configurat. Primer actualitzarem la llista de paquets executant "apt update".</p>
+<p>A continuació, instal·lem el servidor NFS amb la comanda.</p>
+<p><code>sudo apt install nfs-kernel-server</code></p>
+<p><img alt="img" src="../Imatges/img/194.png" /></p>
+<p>Per comprovar que el servei s'està executant correctament, utilitzem.</p>
+<p><code>sudo systemctl status nfs-server</code></p>
+<p><img alt="img" src="../Imatges/img/195.png" /></p>
+<p>Amb això, hem configurat la part del servidor per ara.</p>
+<h3 id="compartir-un-directori">Compartir un Directori</h3>
+<p>Per compartir un directori, primer el creem:</p>
+<p><img alt="img" src="../Imatges/img/196.png" /></p>
+<p>Posteriorment, assignem els permisos corresponents i configurem el propietari a "nobody:nogroup" per assegurar que tothom tingui accés:</p>
+<p><img alt="img" src="../Imatges/img/197.png" /></p>
+<p><strong>Seguidament hem de fer que aquesta carpeta sempre estigui muntada</strong></p>
+<p>Per aconseguir-ho, utilitzarem el fitxer /etc/exports per afegir-hi la configuració corresponent. Obrim el fitxer amb:</p>
+<p><code>nano /etc/exports</code></p>
+<p>I afegim la següent línia:</p>
+<p><code>/compartida *(rw,sync,no_subtree_check)</code></p>
+<p><img alt="img" src="../Imatges/img/198.png" /></p>
+<p>Després, reiniciem el servei NFS per aplicar els canvis. Cal fer-ho cada vegada que modifiquem la configuració:</p>
+<p><code>sudo systemctl restart nfs-kernel-server</code></p>
+<p><img alt="img" src="../Imatges/img/199.png" /></p>
+<p><strong>Creem un fitxer dins del directori compartit</strong></p>
+<p>Ara creem un fitxer dins del directori que hem compartit per verificar que la configuració és correcta.</p>
+<p><img alt="img" src="../Imatges/img/200.png" /></p>
+<p>I a continuació, procedim amb la configuració del client Windows per accedir al compartit.</p>
+<h2 id="client-windows">Client Windows</h2>
+<p>Per defecte, Windows no té activat el servei NFS. Per això, hem d'activar-lo.</p>
+<p>Ens dirigim al Panell de control i seleccionem "Programas i características".</p>
+<p><img alt="img" src="../Imatges/img/201.png" /></p>
+<p>A continuació, triem l'opció "Turn Windows features on or off".</p>
+<p><img alt="img" src="../Imatges/img/202.png" /></p>
+<p>Cerquem NFS i obrim el desplegable. Farem clic a les tres opcions disponibles per activar el servei.</p>
+<p><img alt="img" src="../Imatges/img/203.png" /></p>
+<p>Un cop activat, configurem el client per accedir al recurs compartit. Per aconseguir-ho, obrirem l'Explorador de Fitxers i accedirem a "Aquest PC" &gt; "Mapejar una unitat de xarxa".</p>
+<p><img alt="img" src="../Imatges/img/204.png" /></p>
+<p>Ara, introduïm la ruta al recurs compartit, afegint la IP del servidor i la carpeta compartida.</p>
+<p><img alt="img" src="../Imatges/img/205.png" /></p>
+<p>Acceptem i ja podem observar que s'ha compartit amb èxit.</p>
+<p><img alt="img" src="../Imatges/img/206.png" /></p>
+<p>Ara podem provar de crear un directori o fins i tot editar el fitxer que hem creat al servidor.</p>
+<p><img alt="img" src="../Imatges/img/207.png" /></p>
+<p><strong>Comprovem dins del nostre servidor</strong></p>
+<p>Utilitzem la comanda ls -l per comprovar si s'han creat els fitxers o directoris des del client Windows. Podrem observar que els fitxers apareixen amb un usuari/grup representat només per números. Això es deu al fet que, en entorns NFS, les identitats d'usuari i grup es basen en identificadors numèrics (UID i GID). Si aquests identificadors no es corresponen amb entrades definides al sistema (o a LDAP), es mostraran simplement com a números.</p>
+<p><img alt="img" src="../Imatges/img/208.png" /></p>
+<h2 id="client-linux">Client Linux</h2>
+<p>En aquesta secció es mostra el procés per muntar un directori compartit via NFS en un client Linux.</p>
+<h3 id="installacio-del-client-nfs">Instal·lació del client NFS</h3>
+<p>Primer cal instal·lar els paquets necessaris per poder muntar sistemes de fitxers NFS al client:</p>
+<p><code>apt install nfs-common rpcbind</code></p>
+<p><img alt="img" src="../Imatges/img/209.png" /></p>
+<p><strong>Creació del punt de muntatge i muntatge del directori compartit</strong></p>
+<p>Un cop instal·lats els paquets necessaris, procedim a crear el directori on es muntarà el recurs compartit.</p>
+<p><img alt="img" src="../Imatges/img/210.png" /></p>
+<ul>
+<li>
+<p>Es navega fins al directori /mnt/.</p>
+</li>
+<li>
+<p>Es crea un directori anomenat nfs amb "mkdir nfs", que servirà com a punt de muntatge.</p>
+</li>
+<li>
+<p>Es canvien els permisos del directori nfs amb "chmod -R 777 nfs/" per donar accés complet a tots els usuaris.</p>
+</li>
+<li>
+<p>Es comprova que el directori s'ha creat amb "ls nfs/".</p>
+</li>
+<li>
+<p>Finalment, es munta la carpeta compartida del servidor NFS (10.0.2.15:/compartida) dins del directori /mnt/nfs/ amb la comanda:</p>
+</li>
+</ul>
+<p><code>mount 10.0.2.15:/compartida /mnt/nfs/</code></p>
+<p>Amb aquests passos, el client Linux tindrà accés als fitxers compartits pel servidor NFS.</p>
+<p>Per verificar que el muntatge s'ha realitzat correctament, podem utilitzar la comanda:</p>
+<p><code>df -h</code></p>
+<p>Aquesta ens mostrarà els sistemes de fitxers muntats, incloent-hi el nostre recurs NFS.</p>
+<p><img alt="img" src="../Imatges/img/211.png" /></p>
+<p>Un cop confirmat que el directori està muntat, podem accedir-hi i comprovar que conté els fitxers creats tant des del servidor com des del client Windows.</p>
+<p><img alt="img" src="../Imatges/img/212.png" /></p>
+<p>Si creem un nou directori des d'aquest client Linux, observem que apareix amb el propietari nobody:nogroup. Això es deu al fet que aquest client no té una correspondència d'usuaris amb el servidor NFS, i per tant, s'assignen aquests valors per defecte.</p>
+<p><img alt="img" src="../Imatges/img/213.png" /></p>
+<p>Aquesta situació es produeix perquè NFS gestiona els permisos mitjançant els UID (User ID) i GID (Group ID). Si el client Linux crea un fitxer amb un UID/GID que no existeix al servidor, aquest no el pot reconèixer i l’assigna automàticament com nobody:nogroup.</p>
+<p>Aquest comportament també es deu a "root squash", una configuració predeterminada en /etc/exports que evita que root del client tingui privilegis en el servidor. Això pot afectar altres usuaris si no hi ha coincidència d'UIDs entre client i servidor.</p>
+<h2 id="perfils-mobils">Perfils Mòbils</h2>
+<p>Crearem un directori anomenat "perfils", que serà utilitzat per emmagatzemar els perfils mòbils dels usuaris. Aquest directori tindrà com a propietari nobody:nogroup.</p>
+<p><img alt="img" src="../Imatges/img/214.png" /></p>
+<p>Assignem permisos 777 (lectura, escriptura i execució per a tots els usuaris). Tot i que això facilita les proves, no és recomanable en un entorn de producció, ja que podria suposar un risc de seguretat.</p>
+<p><img alt="img" src="../Imatges/img/215.png" /></p>
+<p>Configuració en /etc/exports</p>
+<p>Perquè aquest directori pugui ser compartit a través de NFS, afegim la següent línia al fitxer /etc/exports:</p>
+<p><code>/perfils *(rw,sync,no_root_squash,no_subtree_check)</code></p>
+<p>Aquesta línia configura el directori "perfils" amb les següents opcions:</p>
+<ul>
+<li>
+<p><em>rw</em> → Permet lectura i escriptura des dels clients.</p>
+</li>
+<li>
+<p><em>sync</em> → Escriu els canvis immediatament al disc per evitar pèrdues de dades.</p>
+</li>
+<li>
+<p><em>no_root_squash</em> → Permet que root dels clients mantingui els seus privilegis en el servidor. Per defecte, NFS converteix root en nobody:nogroup, però amb aquesta opció s’evita aquest comportament.</p>
+</li>
+<li>
+<p><em>no_subtree_check</em> → Desactiva la verificació de subarbres, millorant el rendiment i evitant problemes d’accés quan es comparteixen directoris sencers.</p>
+</li>
+</ul>
+<p><img alt="img" src="../Imatges/img/216.png" /></p>
+<p>Finalment, reiniciem el servei NFS per aplicar els canvis:</p>
+<p><code>sudo systemctl restart nfs-kernel-server</code></p>
+<p><img alt="img" src="../Imatges/img/217.png" /></p>
+<h3 id="configuracio-de-perfils-mobils-amb-ldap">Configuració de Perfils Mòbils amb LDAP</h3>
+<p>Primerament hem de crear un usuari, he creat un arxiu .ldif i he afegit els següents paràmetres.</p>
+<p><img alt="img" src="../Imatges/img/218.png" /></p>
+<p>Després l'afegim amb ldapadd i ho comprovem amb un search.</p>
+<p><img alt="img" src="../Imatges/img/219.png" /></p>
+<h3 id="configuracio-del-client">Configuració del Client</h3>
+<p>Primer, crearem el directori on es muntarà el perfil mòbil i assignarem els permisos adequats.</p>
+<p><img alt="img" src="../Imatges/img/220.png" /></p>
+<p>A continuació, configurarem el fitxer /etc/fstab. MOLT DE COMPTE! Qualsevol error en aquest fitxer pot provocar un mal funcionament del sistema o fins i tot impedir que arrenqui.</p>
+<p><img alt="img" src="../Imatges/img/221.png" /></p>
+<p>Un cop editat, podem executar la comanda "mount -a" per muntar totes les unitats definides a /etc/fstab i verificar que el muntatge s'ha fet correctament.</p>
+<p><img alt="img" src="../Imatges/img/222.png" /></p>
+<p>Quan intentem iniciar sessió amb l'usuari "domin", el sistema crea automàticament el seu directori de perfil dins de "/perfil".</p>
+<p><img alt="img" src="../Imatges/img/223.png" /></p>
+<p>Finalment, obrim un terminal i comprovem que l'usuari està correctament identificat amb les comandes "whoami" i "id".</p>
+<p><img alt="img" src="../Imatges/img/224.png" /></p>
+<p>Amb això, ja tenim el perfil mòbil configurat correctament.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -25,6 +25,11 @@ nav:
     - Automatitzacions de Tasques: autotask.md
     - Còpies de Seguretat: sec_copy.md
     - Quotes per a usuaris i grups: quotes.md
+- Sprint3:
+    - Instal·lació domini LDAP: ldap.md
+    - Configuració del client LDAP: client_ldap.md
+    - Gestió del domini LDAP: gestio_ldap.md
+    - Perfils mòbils i Compartició de recursos: smb_nfs.md
 
 theme:
     name: material
