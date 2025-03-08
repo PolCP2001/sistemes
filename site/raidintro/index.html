@@ -1,0 +1,1314 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ldap_gui/">
+      
+      
+        <link rel="next" href="../raid1/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Introducció teòrica als RAIDs - Implantació de Sistemes Operatius - POL CASANOVA PUIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentacio-raid" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-header__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantació de Sistemes Operatius - POL CASANOVA PUIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducció teòrica als RAIDs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-nav__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Implantació de Sistemes Operatius - POL CASANOVA PUIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sprint1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció al Sprint 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació del sistema operatiu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Particions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llicence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llicenciament
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Punts de restauració
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració bàsica de xarxa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../softinst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació bàsica de programes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recuperació de gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonezilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spr2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció al Sprint 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imp_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fitxers importants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió d'usuaris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proc_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de processos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special_perm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sp_use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aplicació de permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file_sys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../share_src/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de particions i compartició de recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autotask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automatitzacions de Tasques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sec_copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Còpies de Seguretat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quotes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quotes per a usuaris i grups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació domini LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració del client LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gestio_ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió del domini LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smb_nfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perfils mòbils i Compartició de recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../share_samba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compartir recursos amb SAMBA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap_gui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració LDAP GUI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint4
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introducció teòrica als RAIDs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Introducció teòrica als RAIDs
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccio-als-raid" class="md-nav__link">
+    Introducció als RAID
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducció als RAID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nivells-raid-mes-comuns" class="md-nav__link">
+    Nivells RAID més comuns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zfs-sistema-darxius-amb-funcions-raid" class="md-nav__link">
+    ZFS: Sistema d'arxius amb funcions RAID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solucio-demmagatzematge-distribuit-ceph" class="md-nav__link">
+    Solució d'emmagatzematge distribuït: CEPH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspectes-clau-en-la-configuracio-de-raid" class="md-nav__link">
+    Aspectes clau en la configuració de RAID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taula-comparativa-raid-vs-ceph-vs-zfs" class="md-nav__link">
+    Taula comparativa: RAID vs CEPH vs ZFS
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raid1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració de RAID 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raid5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració de RAID 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccio-als-raid" class="md-nav__link">
+    Introducció als RAID
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducció als RAID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nivells-raid-mes-comuns" class="md-nav__link">
+    Nivells RAID més comuns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zfs-sistema-darxius-amb-funcions-raid" class="md-nav__link">
+    ZFS: Sistema d'arxius amb funcions RAID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solucio-demmagatzematge-distribuit-ceph" class="md-nav__link">
+    Solució d'emmagatzematge distribuït: CEPH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspectes-clau-en-la-configuracio-de-raid" class="md-nav__link">
+    Aspectes clau en la configuració de RAID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#taula-comparativa-raid-vs-ceph-vs-zfs" class="md-nav__link">
+    Taula comparativa: RAID vs CEPH vs ZFS
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="documentacio-raid">Documentació RAID</h1>
+<h2 id="introduccio-als-raid">Introducció als RAID</h2>
+<p>Els RAID (Redundant Array of Independent Disks) són tècniques que combinen diversos discs físics per crear un sistema d'emmagatzematge unificat, millorant el rendiment i/o la seguretat de les dades segons el nivell utilitzat.</p>
+<p>Avui en dia també existeixen solucions que, tot i no ser RAID en el sentit tradicional, ofereixen funcions similars de redundància i tolerància a fallades. Un exemple d'això és <strong>CEPH</strong>, un sistema d'emmagatzematge distribuït que proporciona redundància avançada, auto balanceig i alta escalabilitat.</p>
+<h3 id="nivells-raid-mes-comuns">Nivells RAID més comuns</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nivell RAID</th>
+<th style="text-align: left;">Descripció</th>
+<th style="text-align: left;">Avantatges</th>
+<th style="text-align: left;">Desavantatges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>RAID 0</strong></td>
+<td style="text-align: left;">Distribueix les dades sense redundància</td>
+<td style="text-align: left;">Alt rendiment</td>
+<td style="text-align: left;">Cap tolerància a fallades</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RAID 1</strong></td>
+<td style="text-align: left;">Duplica les dades en dos discs (mirall)</td>
+<td style="text-align: left;">Protecció de dades</td>
+<td style="text-align: left;">Capacitat efectiva reduïda (50% utilitzable)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RAID 5</strong></td>
+<td style="text-align: left;">Distribueix dades amb informació de paritat</td>
+<td style="text-align: left;">Bon equilibri entre rendiment i seguretat</td>
+<td style="text-align: left;">Mínim 3 discs; rendiment d'escriptura inferior</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RAID 6</strong></td>
+<td style="text-align: left;">Igual que RAID 5, però amb doble paritat</td>
+<td style="text-align: left;">Pot tolerar la fallada de fins a 2 discs</td>
+<td style="text-align: left;">Rendiment d'escriptura més baix; necessita més discs</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RAID 10</strong></td>
+<td style="text-align: left;">Combina duplicació (RAID 1) i distribució (RAID 0)</td>
+<td style="text-align: left;">Molt alt rendiment i seguretat</td>
+<td style="text-align: left;">Cost elevat per la necessitat de més discs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="zfs-sistema-darxius-amb-funcions-raid">ZFS: Sistema d'arxius amb funcions RAID</h3>
+<p><strong>ZFS</strong> és un sistema d'arxius combinat amb gestor de volums desenvolupat per Sun Microsystems (ara Oracle). Entre les seves característiques destaca:</p>
+<ul>
+<li><strong>Integritat de dades:</strong> Utilitza sumes de verificació i té capacitat d'auto reparació.  </li>
+<li><strong>Snapshots i clonació:</strong> Permet fer còpies de seguretat i recuperar dades fàcilment.  </li>
+<li><strong>Compresió i deduplicació:</strong> Optimitza l'ús de l'espai.  </li>
+<li><strong>Pooled storage:</strong> Facilita una gestió flexible dels discos.</li>
+</ul>
+<p>ZFS integra els seus esquemes de redundància, coneguts com a <strong>RAID-Z</strong>, que són funcionalment equivalents als RAID tradicionals però amb millores en rendiment, fiabilitat i simplicitat de gestió.</p>
+<h3 id="solucio-demmagatzematge-distribuit-ceph">Solució d'emmagatzematge distribuït: CEPH</h3>
+<p><strong>CEPH</strong> és un sistema d'emmagatzematge distribuït que va més enllà del concepte tradicional de RAID. Les seves principals característiques són:</p>
+<ul>
+<li><strong>Redundància avançada:</strong> Utilitza replicació i erasure coding per garantir la disponibilitat de les dades.  </li>
+<li><strong>Auto balanceig:</strong> Redistribueix automàticament la càrrega entre nodes per optimitzar el rendiment.  </li>
+<li><strong>Escalabilitat:</strong> Permet ampliar la capacitat d'emmagatzematge afegint més nodes sense parades.</li>
+</ul>
+<p>Tot i que CEPH opera a un nivell diferent (distribuït i basat en programari), comparteix amb els RAID l'objectiu de protegir i optimitzar l'emmagatzematge de dades.</p>
+<h3 id="aspectes-clau-en-la-configuracio-de-raid">Aspectes clau en la configuració de RAID</h3>
+<ul>
+<li><strong>Uniformitat dels discs i particions:</strong><br />
+Es recomana utilitzar discs o particions de la mateixa marca i capacitat per obtenir una configuració òptima.  </li>
+<li><strong>Planificació de la configuració:</strong><br />
+Cal preparar correctament els discs, configurar el nivell RAID desitjat i, finalment, automatitzar el muntatge per facilitar l'accés a les dades.</li>
+</ul>
+<hr />
+<h2 id="taula-comparativa-raid-vs-ceph-vs-zfs">Taula comparativa: RAID vs CEPH vs ZFS</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Característica</th>
+<th style="text-align: left;">RAID</th>
+<th style="text-align: left;">CEPH</th>
+<th style="text-align: left;">ZFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Tipus</strong></td>
+<td style="text-align: left;">Tècnica d'agrupació de discs</td>
+<td style="text-align: left;">Sistema d'emmagatzematge distribuït</td>
+<td style="text-align: left;">Sistema d'arxius amb gestor de volums i redundància integrada</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Implementació</strong></td>
+<td style="text-align: left;">Hardware o software</td>
+<td style="text-align: left;">Basat en programari, distribuït en múltiples nodes</td>
+<td style="text-align: left;">Integrat amb el sistema d'arxius, amb gestió flexible de volums</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Redundància</strong></td>
+<td style="text-align: left;">Mirroring, paritat (RAID 1,5,6,10, etc.)</td>
+<td style="text-align: left;">Replicació i erasure coding</td>
+<td style="text-align: left;">RAID-Z (integració de paritat amb copy-on-write)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Escalabilitat</strong></td>
+<td style="text-align: left;">Limitada al grup fix de discs</td>
+<td style="text-align: left;">Altament escalable afegint nodes</td>
+<td style="text-align: left;">Escalabilitat dins del pool, encara que amb menys flexibilitat que CEPH</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gestió</strong></td>
+<td style="text-align: left;">Pot requerir configuració manual</td>
+<td style="text-align: left;">Automatitza la redistribució i recuperació de dades</td>
+<td style="text-align: left;">Simplifica la gestió amb funcions avançades (snapshots, clonació, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Funcions avançades</strong></td>
+<td style="text-align: left;">Centrat en redundància i rendiment</td>
+<td style="text-align: left;">Alta disponibilitat, tolerància a fallades i gestió distribuïda</td>
+<td style="text-align: left;">Integritat de dades, compresió, deduplicació, snapshots, etc.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

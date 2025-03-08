@@ -1,0 +1,1452 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../share_samba/">
+      
+      
+        <link rel="next" href="../raidintro/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Configuració LDAP GUI - Implantació de Sistemes Operatius - POL CASANOVA PUIG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9f615399.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuracio-ldap-gui" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-header__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Implantació de Sistemes Operatius - POL CASANOVA PUIG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuració LDAP GUI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Implantació de Sistemes Operatius - POL CASANOVA PUIG" class="md-nav__button md-logo" aria-label="Implantació de Sistemes Operatius - POL CASANOVA PUIG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Implantació de Sistemes Operatius - POL CASANOVA PUIG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sprint1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció al Sprint 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació del sistema operatiu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partitions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Particions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llicence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llicenciament
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Punts de restauració
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../net/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració bàsica de xarxa
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../softinst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació bàsica de programes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reboot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recuperació de gestors d'arrencada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clonezilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spr2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció al Sprint 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../imp_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fitxers importants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió d'usuaris
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proc_gest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de processos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../special_perm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sp_use/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aplicació de permisos especials i ACLs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file_sys/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sistema de fitxers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../share_src/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió de particions i compartició de recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autotask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Automatitzacions de Tasques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sec_copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Còpies de Seguretat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quotes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quotes per a usuaris i grups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instal·lació domini LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../client_ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració del client LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gestio_ldap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestió del domini LDAP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smb_nfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perfils mòbils i Compartició de recursos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../share_samba/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compartir recursos amb SAMBA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Configuració LDAP GUI
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Configuració LDAP GUI
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#entorns-grafics-per-a-ldap" class="md-nav__link">
+    Entorns Gràfics per a LDAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache-directory-studio" class="md-nav__link">
+    Apache Directory Studio
+  </a>
+  
+    <nav class="md-nav" aria-label="Apache Directory Studio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inici-i-configuracio" class="md-nav__link">
+    Inici i Configuració
+  </a>
+  
+    <nav class="md-nav" aria-label="Inici i Configuració">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-descarregar-i-preparar-leina" class="md-nav__link">
+    1. Descarregar i preparar l'eina
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-crear-una-nova-connexio-ldap" class="md-nav__link">
+    2. Crear una nova connexió LDAP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afegir-registres-manualment" class="md-nav__link">
+    Afegir Registres Manualment
+  </a>
+  
+    <nav class="md-nav" aria-label="Afegir Registres Manualment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-crear-una-nova-entrada" class="md-nav__link">
+    1. Crear una nova entrada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configurar-el-registre" class="md-nav__link">
+    2. Configurar el registre
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-verificar-la-creacio" class="md-nav__link">
+    3. Verificar la creació
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacio-amb-plantilles" class="md-nav__link">
+    Creació amb Plantilles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprovacio" class="md-nav__link">
+    Comprovació
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucio-de-problemes" class="md-nav__link">
+    Solució de Problemes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sprint4
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Sprint4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raidintro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducció teòrica als RAIDs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raid1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració de RAID 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../raid5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuració de RAID 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#entorns-grafics-per-a-ldap" class="md-nav__link">
+    Entorns Gràfics per a LDAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache-directory-studio" class="md-nav__link">
+    Apache Directory Studio
+  </a>
+  
+    <nav class="md-nav" aria-label="Apache Directory Studio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inici-i-configuracio" class="md-nav__link">
+    Inici i Configuració
+  </a>
+  
+    <nav class="md-nav" aria-label="Inici i Configuració">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-descarregar-i-preparar-leina" class="md-nav__link">
+    1. Descarregar i preparar l'eina
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-crear-una-nova-connexio-ldap" class="md-nav__link">
+    2. Crear una nova connexió LDAP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afegir-registres-manualment" class="md-nav__link">
+    Afegir Registres Manualment
+  </a>
+  
+    <nav class="md-nav" aria-label="Afegir Registres Manualment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-crear-una-nova-entrada" class="md-nav__link">
+    1. Crear una nova entrada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configurar-el-registre" class="md-nav__link">
+    2. Configurar el registre
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-verificar-la-creacio" class="md-nav__link">
+    3. Verificar la creació
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacio-amb-plantilles" class="md-nav__link">
+    Creació amb Plantilles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprovacio" class="md-nav__link">
+    Comprovació
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucio-de-problemes" class="md-nav__link">
+    Solució de Problemes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="configuracio-ldap-gui">Configuració LDAP GUI</h1>
+<h2 id="entorns-grafics-per-a-ldap">Entorns Gràfics per a LDAP</h2>
+<p>En aquest document, explicarem com utilitzar diferents entorns gràfics per a LDAP, amb especial atenció a <strong>Apache Directory Studio</strong>.</p>
+<hr />
+<p>Els entorns gràfics faciliten la gestió dels servidors LDAP, permetent la creació, modificació i administració d'usuaris, grups i altres objectes de manera visual. Algunes eines recomanades són:</p>
+<ol>
+<li>
+<p><a href="https://directory.apache.org/studio/">Apache Directory Studio</a> - Eina completa amb interfície intuïtiva.  </p>
+</li>
+<li>
+<p><a href="https://jxplorer.org/">JXplorer</a> - Navegador i editor LDAP de codi obert.  </p>
+</li>
+<li>
+<p><a href="http://phpldapadmin.sourceforge.net/">phpLDAPadmin</a> - Aplicació web per gestionar LDAP des del navegador.  </p>
+</li>
+<li>
+<p><a href="https://www.ldap-account-manager.org/lamcms/">LDAP Account Manager</a> - Eina avançada per administrar usuaris i grups amb múltiples funcionalitats.</p>
+</li>
+</ol>
+<hr />
+<h2 id="apache-directory-studio">Apache Directory Studio</h2>
+<p>En aquest tutorial farem ús d'Apache Directory Studio, una de les eines més populars per gestionar directoris LDAP. Aquesta aplicació permet administrar diversos servidors LDAP i ofereix funcionalitats com:</p>
+<ul>
+<li>
+<p>Edició d'esquemes.  </p>
+</li>
+<li>
+<p>Cerca avançada d'entrades.  </p>
+</li>
+<li>
+<p>Configuració de la seguretat.</p>
+</li>
+</ul>
+<p>És especialment útil per a usuaris que necessiten una gestió flexible i professional dels seus directoris LDAP.</p>
+<h3 id="inici-i-configuracio">Inici i Configuració</h3>
+<h4 id="1-descarregar-i-preparar-leina"><strong>1. Descarregar i preparar l'eina</strong></h4>
+<ul>
+<li><strong>Descarrega</strong> Apache Directory Studio des de la <a href="https://directory.apache.org/studio/">pàgina oficial</a>:</li>
+</ul>
+<p><img alt="Apache Directory Studio" src="../Imatges/plus/22.png" /></p>
+<ul>
+<li><strong>Descomprimeix</strong> el fitxer descarregat i obre el directori resultant:</li>
+</ul>
+<p><img alt="Descomprimir el directori" src="../Imatges/plus/23.png" /></p>
+<ul>
+<li><strong>Executa</strong> l'arxiu executable per iniciar l'eina:</li>
+</ul>
+<p><img alt="Executar l'executable" src="../Imatges/plus/24.png" /></p>
+<p><strong>Important:</strong> Per evitar errors en iniciar Apache Directory Studio, assegura't de tenir instal·lat el Java Development Kit (JDK). Si no tens Java instal·lat, executa la comanda:</p>
+<p><code>sudo apt install default-jdk</code></p>
+<p>Aquesta comanda instal·la la versió per defecte del JDK en distribucions basades en Debian i Ubuntu, indispensable per a l'execució correcta de l'eina.</p>
+<h4 id="2-crear-una-nova-connexio-ldap"><strong>2. Crear una nova connexió LDAP</strong></h4>
+<ul>
+<li>Fes clic a <strong>LDAP</strong> i selecciona <strong>New Connection</strong>:</li>
+</ul>
+<p><img alt="Nova connexió LDAP" src="../Imatges/plus/25.png" /></p>
+<ul>
+<li>Introdueix les dades de connexió:</li>
+</ul>
+<p><img alt="Dades de connexió" src="../Imatges/plus/26.png" /></p>
+<ul>
+<li>Afegeix els detalls del <strong>cd</strong>, <strong>dc</strong> i la contrasenya de l'administrador:</li>
+</ul>
+<p><img alt="Detalls de connexió" src="../Imatges/plus/27.png" /></p>
+<ul>
+<li>Un cop establerta la connexió, podràs visualitzar l'estructura LDAP amb la OU (<em>Organizational Unit</em>), el CN (<em>Common Name</em>) i els UID:</li>
+</ul>
+<p><img alt="Visualització de l'estructura LDAP" src="../Imatges/plus/28.png" /></p>
+<hr />
+<h2 id="afegir-registres-manualment">Afegir Registres Manualment</h2>
+<p>Per afegir un nou registre manualment, segueix aquests passos:</p>
+<h3 id="1-crear-una-nova-entrada">1. Crear una nova entrada</h3>
+<ul>
+<li>Fes clic dret sobre la OU on vols afegir el registre i selecciona <strong>New Entry</strong>:</li>
+</ul>
+<p><img alt="Nou registre" src="../Imatges/plus/29.png" /></p>
+<ul>
+<li>Escull l'opció per crear una entrada des de zero:</li>
+</ul>
+<p><img alt="Opció per crear entrada" src="../Imatges/plus/30.png" /></p>
+<h3 id="2-configurar-el-registre">2. Configurar el registre</h3>
+<ul>
+<li><strong>Defineix l'objectClass:</strong>  </li>
+</ul>
+<p>En aquest exemple, crearem un grup seleccionant <strong>posixGroup</strong>:</p>
+<p><img alt="objectClass posixGroup" src="../Imatges/plus/31.png" /></p>
+<ul>
+<li><strong>Estableix el RDN:</strong>  </li>
+</ul>
+<p>Introdueix el RDN necessari. En aquest cas, utilitzarem el <strong>cn</strong> amb el nom "Public" (pots usar el nom que prefereixis):</p>
+<p><img alt="RDN: cn amb nom Public" src="../Imatges/plus/32.png" /></p>
+<ul>
+<li><strong>Assigna un gidNumber:</strong>  </li>
+</ul>
+<p>Com que es tracta d'un grup, se't demanarà que introdueixis un <strong>gidNumber</strong>. Per exemple, pots posar el valor 5000:</p>
+<p><img alt="gidNumber" src="../Imatges/plus/33.png" /></p>
+<h3 id="3-verificar-la-creacio">3. Verificar la creació</h3>
+<p>Un cop completats aquests passos, el registre s'ha creat correctament. Verifica-ho navegant per l'estructura del directori:</p>
+<p><img alt="Verificació del registre" src="../Imatges/plus/34.png" /></p>
+<hr />
+<h2 id="creacio-amb-plantilles">Creació amb Plantilles</h2>
+<p>En aquesta secció, afegirem un registre utilitzant una plantilla existent, seleccionant la plantilla d’un usuari que ja tenim creat.</p>
+<ul>
+<li><strong>Seleccionar la plantilla d'usuari:</strong></li>
+</ul>
+<p><img alt="Plantilla d'usuari" src="../Imatges/plus/35.png" /></p>
+<ul>
+<li>En aquest cas, no cal modificar res, ja que volem crear un usuari i la configuració per defecte ens serveix:</li>
+</ul>
+<p><img alt="Configuració per defecte" src="../Imatges/plus/36.png" /></p>
+<ul>
+<li><strong>Modificar el <code>cn</code>:</strong>  </li>
+</ul>
+<p>Canvia el <code>cn</code> del registre per assignar-li un nou nom.</p>
+<p><img alt="Modificar el cn" src="../Imatges/plus/37.png" /></p>
+<ul>
+<li>En fer clic a <strong>Next</strong>, se't demanarà que introdueixis un <code>UID</code> posarem el nostre nom:</li>
+</ul>
+<p><img alt="Introduir UID" src="../Imatges/plus/38.png" /></p>
+<p><strong>Important:</strong> No oblidis canviar també la ruta <code>/home/</code> per al nou usuari, el uidNumber, gidNumber i el uid que és el nom de l'usuari de sessió.</p>
+<p><img alt="Modificar /home/" src="../Imatges/plus/39.png" /></p>
+<hr />
+<h2 id="comprovacio">Comprovació</h2>
+<p>Amb un client integrat al domini LDAP, inicia sessió. En fer-ho, es crea automàticament el directori <code>/home/pol</code>. Per verificar-ho, executa la comanda <code>whoami</code> per confirmar el nom d'usuari i <code>id</code> per visualitzar la informació d'identificació.</p>
+<p><img alt="Sortida de whoami" src="../Imatges/plus/40.png" /></p>
+<hr />
+<h2 id="solucio-de-problemes">Solució de Problemes</h2>
+<p>Aquí tens algunes solucions als problemes més comuns:</p>
+<p><strong>Error de Java o JDK:</strong>  </p>
+<ul>
+<li>Si al iniciar Apache Directory Studio apareixen errors relacionats amb Java, assegura't d'haver instal·lat correctament el JDK amb:</li>
+</ul>
+<p><code>sudo apt install default-jdk</code></p>
+<p><strong>Connexió fallida al servidor LDAP:</strong>  </p>
+<ul>
+<li>
+<p>Verifica que la informació de connexió (cd, dc i credencials) sigui correcta.  </p>
+</li>
+<li>
+<p>Assegura't que el servidor LDAP estigui en funcionament i accessible des de la teva xarxa.  </p>
+</li>
+</ul>
+<p><strong>Problemes en la creació de registres:</strong>  </p>
+<ul>
+<li>
+<p>Comprova que els atributs obligatoris (com <code>objectClass</code>, <code>cn</code>, <code>gidNumber</code> o <code>UID</code>) s'hagin introduït correctament.  </p>
+</li>
+<li>
+<p>Revisa la configuració de les plantilles per assegurar-te que no hi hagi errors de format o informació duplicada.</p>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -30,6 +30,12 @@ nav:
     - Configuració del client LDAP: client_ldap.md
     - Gestió del domini LDAP: gestio_ldap.md
     - Perfils mòbils i Compartició de recursos: smb_nfs.md
+    - Compartir recursos amb SAMBA: share_samba.md
+    - Configuració LDAP GUI: ldap_gui.md
+- Sprint4:
+    - Introducció teòrica als RAIDs: raidintro.md
+    - Configuració de RAID 1: raid1.md
+    - Configuració de RAID 5: raid5.md
 
 theme:
     name: material
